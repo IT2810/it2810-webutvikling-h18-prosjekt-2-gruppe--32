@@ -1,24 +1,43 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './style.css';
 import registerServiceWorker from './registerServiceWorker';
-import logo from "./logo.svg";
+import Header from "./components/Header";
+import Category from "./components/Category";
+import MediaRepresentation from "./components/MediaRepresentation";
+import Footer from "./components/Footer";
 
-class Test extends React.Component {
+class App extends React.Component {
     render() {
         return (
-            <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h1 className="App-title">Welcome to intexpo. The world of oppotunities!</h1>
-                </header>
-                <p className="App-intro">
-                    To get started, edit <code>src/App.js</code> and save to reload.
-                </p>
-            </div>
-        );
+            <React.Fragment>
+                <Header/>
+                <div className="container">
+                    <div className="mediaContainer">
+                        <div className="comboMenu">
+                            <Category/>
+                            <Category/>
+                            <Category/>
+                            <Category/>
+                        </div>
+                        <div className="mediaPictureContainer">
+                            <MediaRepresentation/>
+                        </div>
+                        <div className="mediaTextContainer">
+                            <p className="mediaText">MEDIATEXT</p>
+                        </div>
+                    </div>
+
+                    <div className="mediaCategory">
+                        MEDIAKATEGORIER
+
+                    </div>
+                </div>
+                <Footer/>
+            </React.Fragment>
+        )
     }
 }
 
-ReactDOM.render(<Test />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
