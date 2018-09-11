@@ -1,0 +1,121 @@
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  width: 100%;
+  background-color: rgb(256,256,256);
+}
+
+header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: rgba(170,0,0,0.8);
+  height: 100px;
+  color: white;
+  font-size: 40px;
+  font-family: "Bauhaus 93";
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 600px;
+}
+
+.mediaContainer{
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  height: auto;
+  background-color: rgb(256,256,256);
+}
+
+.mediaPictureContainer{
+  width:100%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(256,256,256);
+}
+
+.picFrame{
+  width: 60%;
+  height: 95%;
+  background-color: rgb(209, 209, 209);
+}
+
+.mediaTextContainer{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 30%;
+  background-color: white;
+}
+
+.mediaText{
+  font-size: 15px;
+  font-family: "Bauhaus 93";
+  color: black;
+}
+
+.comboMenu{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  background-color: rgb(256,256,256);
+  height: 80px;
+}
+
+#combinationButton{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width:24.9%;
+  background-color: rgb(0,0,0);
+  height: 100%;
+  padding:0;
+  border:none;
+}
+
+#comboLine {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  background-color: rgb(256, 0, 0);
+}
+
+#combinationButton:hover{
+  background-color: rgb(256,256,256);
+}
+
+#combinationButton:hover > #comboLine{
+  background-color: rgb(0, 0, 0);
+}
+
+.mediaCategory{
+  width: 15%;
+  height: 100%;
+  background-color: rgb(209, 209, 209);
+}
+
+footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 59px;
+  width: 100%;
+  background-color: rgba(170,0,0,0.8);
+}
