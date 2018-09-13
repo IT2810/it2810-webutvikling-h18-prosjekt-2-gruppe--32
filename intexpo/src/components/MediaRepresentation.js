@@ -5,7 +5,7 @@ class MediaRepresentation extends React.Component {
     render(){
         return(
             <React.Fragment>
-                <div className="picFrame"/>
+                <div id="picFrame"/>
 
             </React.Fragment>
 

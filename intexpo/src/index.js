@@ -13,27 +13,27 @@ class App extends React.Component {
         return (
             <React.Fragment>
                 <Header/>
-                <div className="container">
-                    <div className="mediaContainer">
-                        <div className="combinationMenu">
+                <div id="container">
+                    <div id="mediaContainer">
+                        <div id="combinationMenu">
                             <CombinationButton/>
                             <CombinationButton/>
                             <CombinationButton/>
                             <CombinationButton/>
                         </div>
-                        <div className="mediaPictureContainer">
+                        <div id="mediaPictureContainer">
                             <MediaRepresentation/>
                         </div>
-                        <div className="mediaTextContainer">
-                            <p className="mediaText"></p>
+                        <div id="mediaTextContainer">
+                            <p id="mediaText"></p>
                         </div>
                     </div>
 
-                    <div className="mediaCategory">
-                        <div className="categoryHeader">Kategorier</div>
-                        <CategoryButton categoryName="Bilder"/>
-                        <CategoryButton categoryName="Lyd"/>
-                        <CategoryButton categoryName="Tekst"/>
+                    <div id="mediaCategory">
+                        <div id="categoryHeader">Kategorier</div>
+                        <CategoryButton category1Name="Abstrakt" category2Name="Dyr" category3Name="Biler" categoryNameID="ImageCategories" categoryName="Bilder"/>
+                        <CategoryButton category1Name="Intstrumenter" category2Name="Musikk" category3Name="Vær" categoryNameID="SoundCategories" categoryName="Lyd"/>
+                        <CategoryButton category1Name="Språk" category2Name="One-liners" category3Name="Trump-quotes" categoryNameID="TextCategories" categoryName="Tekst"/>
                     </div>
                 </div>
                 <Footer/>
