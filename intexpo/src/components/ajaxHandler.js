@@ -38,9 +38,10 @@ class AjaxHandler extends React.Component {
   render() {
     return(
       <React.Fragment>
-        <section className="picFrame">
-          <img class="mainImage" src="sessionStorage.getItem(props.imagePath)">
-          </img>
+        <section id="mediaPictureContainer">
+          <section id="picFrame">
+            <img class="mainImage" src="sessionStorage.getItem(props.imagePath)" alt="Picture cannot be shown at this time"/>
+          </section>
         </section>
         <section id="mediaTextContainer">
           <p id="mediaText">

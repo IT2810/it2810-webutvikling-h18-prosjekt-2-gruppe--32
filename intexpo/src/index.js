@@ -21,19 +21,14 @@ class App extends React.Component {
                             <CombinationButton/>
                             <CombinationButton/>
                         </div>
-                        <div id="mediaPictureContainer">
-                            <AjaxHandler/>
-                        </div>
-                        <div id="mediaTextContainer">
-                            <p id="mediaText"></p>
-                        </div>
+                        <AjaxHandler/>
                     </div>
 
                     <div id="mediaCategory">
                         <div id="categoryHeader">Kategorier</div>
-                        <CategoryButton category1Name="Abstrakt" category2Name="Dyr" category3Name="Biler" categoryNameID="ImageCategories" categoryName="Bilder"/>
-                        <CategoryButton category1Name="Intstrumenter" category2Name="Musikk" category3Name="Vær" categoryNameID="SoundCategories" categoryName="Lyd"/>
-                        <CategoryButton category1Name="Språk" category2Name="One-liners" category3Name="Trump-quotes" categoryNameID="TextCategories" categoryName="Tekst"/>
+                        <CategoryButton category1Name="Abstrakt" category2Name="Dyr" category3Name="Biler" categoryType="Image" categoryName="Bilder"/>
+                        <CategoryButton category1Name="Intstrumenter" category2Name="Musikk" category3Name="Vær" categoryType="Sound" categoryName="Lyd"/>
+                        <CategoryButton category1Name="Språk" category2Name="One-liners" category3Name="Trump-quotes" categoryType="Text" categoryName="Tekst"/>
                     </div>
                 </div>
                 <Footer/>

@@ -21,6 +21,7 @@ header{
   font-family: "Bauhaus 93";
 }
 
+/*Container for the entire body minus header and footer*/
 #container{
   display: flex;
   flex-direction: row;
@@ -103,14 +104,14 @@ header{
 
 #mediaText{
   font-size: 15px;
-  font-family: "Bauhaus 93";
+  font-family: "Courier New", serif;
   color: black;
 }
 
 #mediaCategory{
   width: 15%;
   height: 85vh;
-  background-color: rgb(209, 209, 209);
+  background-color: rgb(170, 170, 170);
 }
 
 #categoryHeader{
@@ -121,7 +122,7 @@ header{
   height: 10vh;
   background-color: rgb(0,0,0);
   color: white;
-  font-family: "Gill Sans MT";
+  font-family: "Courier New", serif;
   font-size: 20px;
 }
 
@@ -133,35 +134,41 @@ header{
   height: 10vh;
   background-color: rgba(170,0,0,0.8);
   color: white;
-  font-family: "Gill Sans MT";
+  font-family: "Courier New", serif;
   font-size: 20px;
   margin-top: 5px;
   padding:0;
   border:none;
-
+  font-weight: bold;
 }
 
-#ImageCategories, #SoundCategories, #TextCategories{
+#dropdownButton:hover{
+  transition: 0.3s;
+  background-color: rgb(206, 0, 0);
+}
+
+#Image, #Sound, #Text{
   display:none;
   flex-direction: column;
   width:auto;
   height: auto;
 }
 
-input[type=radio]{
+.categoryChoose{
+  width:100%;
+  height: 7vh;
+  background-color: rgb(220, 220, 220);
+  border:none;
+  font-size: 17px;
+  font-family: "Courier New", serif;
+  margin-top: 3px;
 
 }
 
-.dropdownContent{
-  display: flex;
-  align-items: center;
-  font-size: 17px;
-  font-family: "Gill Sans MT";
-  width:100%;
-  height: 7vh;
-  background-color: rgb(256,256,256);
-  color: black;
-  margin-top: 5px;
+.categoryChoose:hover{
+  transition: 0.3s;
+  background-color: rgb(240, 240, 240);
+
 }
 
 footer{
