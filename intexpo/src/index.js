@@ -4,7 +4,7 @@ import './style.css';
 import registerServiceWorker from './registerServiceWorker';
 import Header from "./components/Header";
 import CombinationButton from "./components/CombinationButton";
-import AjaxHandler from "./components/AjaxHandler.js";
+import AjaxHandler from "./components/ajaxHandler.js";
 import Footer from "./components/Footer";
 import CategoryButton from "./components/CategoryButton";
 
