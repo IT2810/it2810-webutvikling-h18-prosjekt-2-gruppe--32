@@ -4,7 +4,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  width: 100%;
+  width: 100vw;
+  min-height: 100vh;
   background-color: rgb(256,256,256);
 }
 
@@ -14,7 +15,7 @@ header{
   align-items: center;
   width: 100%;
   background-color: rgba(170,0,0,0.8);
-  height: 100px;
+  height: 10vh;
   color: white;
   font-size: 40px;
   font-family: "Bauhaus 93";
@@ -24,14 +25,55 @@ header{
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 600px;
+  height: 85vh;
+}
+
+
+.combinationMenu{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  background-color: rgb(256,256,256);
+  height: 10vh;
+}
+
+.combinationButton{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width:24.9%;
+  background-color: rgb(0,0,0);
+  height: 100%;
+  padding:0;
+  border:none;
+}
+
+.comboLine {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  background-color: rgb(256, 0, 0);
+}
+
+.combinationButton:hover{
+  background-color: rgb(256,256,256);
+}
+
+.combinationButton:hover .comboLine{
+  background-color: rgb(0, 0, 0);
 }
 
 .mediaContainer{
   display: flex;
   flex-direction: column;
   width: 85%;
-  height: auto;
+  height: 75vh;
   background-color: rgb(256,256,256);
 }
 
@@ -46,7 +88,7 @@ header{
 
 .picFrame{
   width: 60%;
-  height: 95%;
+  height: 85%;
   background-color: rgb(209, 209, 209);
 }
 
@@ -65,57 +107,79 @@ header{
   color: black;
 }
 
-.comboMenu{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  background-color: rgb(256,256,256);
-  height: 80px;
-}
-
-#combinationButton{
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width:24.9%;
-  background-color: rgb(0,0,0);
-  height: 100%;
-  padding:0;
-  border:none;
-}
-
-#comboLine {
-  width: 100%;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 3px;
-  background-color: rgb(256, 0, 0);
-}
-
-#combinationButton:hover{
-  background-color: rgb(256,256,256);
-}
-
-#combinationButton:hover > #comboLine{
-  background-color: rgb(0, 0, 0);
-}
-
 .mediaCategory{
   width: 15%;
-  height: 100%;
+  height: 85vh;
   background-color: rgb(209, 209, 209);
+}
+
+.categoryHeader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  height: 10vh;
+  background-color: rgb(0,0,0);
+  color: white;
+  font-family: "Gill Sans MT";
+  font-size: 20px;
+}
+
+.dropdown{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  height: 10vh;
+  background-color: rgba(170,0,0,0.8);
+  color: white;
+  font-family: "Gill Sans MT";
+  font-size: 20px;
+  margin-top: 5px;
+
+}
+
+.dropdownContent{
+  visibility: hidden;
+  width:100%;
+  height: 7vh;
+  background-color: rgb(256,256,256);
+  color: black;
+  font-family: SansSerif;
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+.dropdown:hover > .dropdownContent{
+  visibility: visible;
 }
 
 footer{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 59px;
+  height: 5vh;
   width: 100%;
   background-color: rgba(170,0,0,0.8);
 }
+
+/*----------------------------------------------------*/
+/*Responsivt design for mobile enheter*/
+
+@media screen and (orientation: portrait){
+  .container{
+    display: flex;
+    flex-direction: column;
+  }
+  .mediaContainer{
+    width: 100%;
+  }
+
+  .mediaCategory{
+    width: 100%;
+    height:10vh;
+
+  }
+}
+
+/*-----------------------------------------------------*/
