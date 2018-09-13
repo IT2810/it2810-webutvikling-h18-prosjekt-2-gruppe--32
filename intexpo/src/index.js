@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 import './style.css';
 import registerServiceWorker from './registerServiceWorker';
 import Header from "./components/Header";
-import Category from "./components/Category";
+import CombinationButton from "./components/CombinationButton";
 import MediaRepresentation from "./components/MediaRepresentation";
 import Footer from "./components/Footer";
+import CategoryButton from "./components/CategoryButton";
 
 class App extends React.Component {
     render() {
@@ -14,23 +15,25 @@ class App extends React.Component {
                 <Header/>
                 <div className="container">
                     <div className="mediaContainer">
-                        <div className="comboMenu">
-                            <Category/>
-                            <Category/>
-                            <Category/>
-                            <Category/>
+                        <div className="combinationMenu">
+                            <CombinationButton/>
+                            <CombinationButton/>
+                            <CombinationButton/>
+                            <CombinationButton/>
                         </div>
                         <div className="mediaPictureContainer">
                             <MediaRepresentation/>
                         </div>
                         <div className="mediaTextContainer">
-                            <p className="mediaText">MEDIATEXT</p>
+                            <p className="mediaText"></p>
                         </div>
                     </div>
 
                     <div className="mediaCategory">
-                        MEDIAKATEGORIER
-
+                        <div className="categoryHeader">Kategorier</div>
+                        <CategoryButton categoryName="Bilder"/>
+                        <CategoryButton categoryName="Lyd"/>
+                        <CategoryButton categoryName="Tekst"/>
                     </div>
                 </div>
                 <Footer/>
