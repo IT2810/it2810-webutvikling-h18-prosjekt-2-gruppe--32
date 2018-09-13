@@ -4,6 +4,7 @@ import './style.css';
 import registerServiceWorker from './registerServiceWorker';
 import Header from "./components/Header";
 import CombinationButton from "./components/CombinationButton";
+import AjaxHandler from "./components/AjaxHandler.js";
 import Footer from "./components/Footer";
 import CategoryButton from "./components/CategoryButton";
 
@@ -21,7 +22,7 @@ class App extends React.Component {
                             <CombinationButton/>
                         </div>
                         <div id="mediaPictureContainer">
-                            
+                            <AjaxHandler/>
                         </div>
                         <div id="mediaTextContainer">
                             <p id="mediaText"></p>
