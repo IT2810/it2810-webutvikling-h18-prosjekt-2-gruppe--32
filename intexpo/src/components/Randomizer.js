@@ -10,9 +10,9 @@ class Randomizer extends React.Component {
 
     //Must have all files of all categories saved
     //This is an example
-    const abstract = ['Abstract-Circles-Background-By-Karen-Arnold-Prismatic.svg', 'AbstractDesign43.svg', 'Black-And-White-Pattern-3.svg', 'tikigiki-abstract-element-015.svg'];
-    const animals = ['dyr1.svg', 'dyr2.svg', 'dyr3.svg', 'dyr4.svg'];
-    const cars = ['bil1.svg', 'bil2.svg', 'bil3.svg', 'bil4.svg']
+    const abstract = ['abstract1.svg', 'abstract2.svg', 'abstract3.svg', 'abstract4.svg'];
+    const animals = ['animal1.svg', 'animal2.svg', 'animal3.svg', 'animal4.svg'];
+    const cars = ['car1.svg', 'car2.svg', 'car3.svg', 'car4.svg']
     const music = ['1.mp3', '2.mp3', '3.mp3', '4.mp3'];
     const instrument = ['bagpipe.mp3', 'flute.mp3', 'harmonica.mp3', 'synth.mp3'];
     const weather = ['beach.mp3', 'rain.mp3', 'thunder.mp3', 'wind.mp3'];
@@ -73,7 +73,7 @@ class Randomizer extends React.Component {
       const sound1 = this.soundCategory[this.randomSoundIndex];
       this.combos[x].push(this.sound1);
       this.soundCategory.splice(this.randomSoundIndex, 1);
- 
+
       //Find and add random text to combo
       const randomTextIndex = Math.floor(Math.random()*this.textCategory.length);
       const text1 = this.textCategory[this.randomTextIndex];
