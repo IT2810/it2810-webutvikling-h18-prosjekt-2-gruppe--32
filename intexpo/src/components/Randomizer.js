@@ -79,7 +79,7 @@ class Randomizer extends React.Component {
         return (
             //<AjaxHandler /* Pass combos-list as props here. */ />
             //Example:
-            <AjaxHandler combo1=this.combo[0] combo2=this.combo[1] combo3=this.combo[2] combo4=this.combo[3] />
+            <AjaxHandler combos=this.combos />
         )
     }
 }
