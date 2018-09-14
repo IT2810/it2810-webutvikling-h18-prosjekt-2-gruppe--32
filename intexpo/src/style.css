@@ -147,7 +147,7 @@ header{
   background-color: rgb(206, 0, 0);
 }
 
-#Image, #Sound, #Text{
+#Bilder, #Lyd, #Tekst{
   display:none;
   flex-direction: column;
   width:auto;

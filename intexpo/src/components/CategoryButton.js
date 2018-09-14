@@ -6,19 +6,29 @@ class CategoryButton extends React.Component{
 
     constructor(props){
         super(props);
+
         this.state = {
             isclicked : false,
+        };
+
+
+        //Props for CategoryButton
+        this.props = {
+            category1Name : "",
+            category2Name : "",
+            category3Name : "",
+            categoryType : "",
         };
     }
 
     handleClick(categoryType){
         //If you click one button while another is "open" and showing categories, this will close that one.
+        document.getElementById("Bilder").style.display = "none";
+        document.getElementById("Lyd").style.display = "none";
+        document.getElementById("Tekst").style.display = "none";
 
-        document.getElementById("Image").style.display = "none";
-        document.getElementById("Sound").style.display = "none";
-        document.getElementById("Text").style.display = "none";
 
-        //Checking whether the "isclicked"-state is true or false.
+        //Checking whether the "isclicked"-state    is true or false.s
         //False = open dropdown | True = close dropdown
         if(!this.state.isclicked){
             document.getElementById(categoryType).style.display = "flex";
@@ -30,9 +40,17 @@ class CategoryButton extends React.Component{
         }
     }
 
-    callRandomizer(){
-        alert("Test");
-        //CALL RANDOMIZER
+    setList(chosenCategory){
+        //Passing the chosen cateogory through setImage, setSound and setText up to Categories.js
+        if(this.props.categoryType === "Bilder"){
+            this.props.setImage(chosenCategory);
+        }
+        if(this.props.categoryType === "Lyd"){
+            this.props.setSound(chosenCategory);
+        }
+        if(this.props.categoryType === "Tekst"){
+            this.props.setText(chosenCategory);
+        }
     }
 
     render(){
@@ -41,22 +59,21 @@ class CategoryButton extends React.Component{
                 {/* Creating a button for each category (Bilder, lyd, tekst)
                     When the button is  clicked, the function handleClick is called.*/}
 
-                <button id="dropdownButton" onClick={() => this.handleClick(this.props.categoryType)}>{this.props.categoryName}</button>
+                <button id="dropdownButton" onClick={() => this.handleClick(this.props.categoryType)}>{this.props.categoryType}</button>
 
                 {/*The div with id=this.props.categoryNameID has orginially display:none. When handleClick is called, display changes to flex*/}
 
                 <div id={this.props.categoryType}>
 
-                        {/*Creating 3 buttons for each category.
-                           When a button is clicked, the callRandomizer function is called.
-                           The name of the radiobutton (the label), uses props for setting the name.*/}
+                    {/*Creating 3 buttons for each category.
+                       When a button is clicked, the setList function is called, with the chosen category as parameter*/}
 
-                        <button className="categoryChoose" onClick={() => this.callRandomizer()}>{this.props.category1Name}</button>
-                        <button className="categoryChoose" onClick={() => this.callRandomizer()}>{this.props.category2Name}</button>
-                        <button className="categoryChoose" onClick={() => this.callRandomizer()}>{this.props.category3Name}</button>
+                    <button className="categoryChoose" onClick={() => this.setList(this.props.category1Name)}>{this.props.category1Name}</button>
+                    <button className="categoryChoose" onClick={() => this.setList(this.props.category2Name)}>{this.props.category2Name}</button>
+                    <button className="categoryChoose" onClick={() => this.setList(this.props.category3Name)}>{this.props.category3Name}</button>
+
                 </div>
             </React.Fragment>
-
         )
     }
 }

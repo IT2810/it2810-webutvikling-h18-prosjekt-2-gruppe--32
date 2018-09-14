@@ -7,6 +7,7 @@ import CombinationButton from "./components/CombinationButton";
 import AjaxHandler from "./components/ajaxHandler.js";
 import Footer from "./components/Footer";
 import CategoryButton from "./components/CategoryButton";
+import Categories from "./components/Categories";
 
 class App extends React.Component {
     render() {
@@ -26,9 +27,7 @@ class App extends React.Component {
 
                     <div id="mediaCategory">
                         <div id="categoryHeader">Kategorier</div>
-                        <CategoryButton category1Name="Abstrakt" category2Name="Dyr" category3Name="Biler" categoryType="Image" categoryName="Bilder"/>
-                        <CategoryButton category1Name="Intstrumenter" category2Name="Musikk" category3Name="Vær" categoryType="Sound" categoryName="Lyd"/>
-                        <CategoryButton category1Name="Språk" category2Name="One-liners" category3Name="Trump-quotes" categoryType="Text" categoryName="Tekst"/>
+                        <Categories/>
                     </div>
                 </div>
                 <Footer/>
