@@ -1,7 +1,6 @@
 import React from 'react';
 import '../style.css';
 import CategoryButton from "./CategoryButton";
-import Randomizer from "./Randomizer.js";
 
 class Categories extends React.Component {
     constructor(props){
@@ -24,7 +23,6 @@ class Categories extends React.Component {
 
     callRandomizer(){
         //SEND NOE TIL RANDOMIZER HER
-        //<Randomizer selectedCategories={this.state.listToRandomizer} />
     }
 
     //Functions to set the state of image, sound and text
@@ -54,7 +52,6 @@ class Categories extends React.Component {
                 {/*Adding three CategoryButton components
                    Each button has its own function that are being passed from Categories to CategoryButton
                    Also setting props for CategoryButton*/}
-                <Randomizer selectedCategories={this.state.listToRandomizer} />
                 <CategoryButton setImage = {this.setImage} category1Name="Abstrakt" category2Name="Dyr" category3Name="Biler" categoryType="Bilder"/>
                 <CategoryButton setSound = {this.setSound} category1Name="Intstrumenter" category2Name="Musikk" category3Name="Vær" categoryType="Lyd"/>
                 <CategoryButton setText = {this.setText} category1Name="Språk" category2Name="One-liners" category3Name="Trump-quotes" categoryType="Tekst"/>
