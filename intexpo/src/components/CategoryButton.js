@@ -10,15 +10,6 @@ class CategoryButton extends React.Component{
         this.state = {
             isclicked : false,
         };
-
-
-        //Props for CategoryButton
-        this.props = {
-            category1Name : "",
-            category2Name : "",
-            category3Name : "",
-            categoryType : "",
-        };
     }
 
     handleClick(categoryType){

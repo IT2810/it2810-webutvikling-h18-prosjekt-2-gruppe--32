@@ -108,6 +108,24 @@ header{
   color: black;
 }
 
+#mediaAudioContainer{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  background-color: white;
+}
+
+audio{
+
+}
+
+img{
+  width:100%;
+  height: 100%;
+}
+
 #mediaCategory{
   width: 15%;
   height: 85vh;
