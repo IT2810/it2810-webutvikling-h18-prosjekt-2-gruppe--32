@@ -9,7 +9,11 @@ class MediaRepresentation extends React.Component {
     this.updateCombos = this.updateCombos.bind(this);
     this.updateTab = this.updateTab.bind(this);
     this.fetchImage = this.fetchImage.bind(this);
-    this.state = {
+    this.fetchText = this.fetchText.bind(this);
+    this.fetchAudio = this.fetchAudio.bind(this);
+
+
+      this.state = {
         combinations : [],
         tabNr : 1,
         svg : "",
@@ -20,6 +24,13 @@ class MediaRepresentation extends React.Component {
 
   updateCombos(comboList){
       this.state.combinations = comboList;
+      console.log(this.state.combinations);
+  }
+
+  componentDidMount(){
+      this.fetchImage(this.state.combinations[0][0]);
+      this.fetchAudio(this.state.combinations[0][1]);
+      this.fetchText(this.state.combinations[0][2]);
   }
 
   updateTab(newTabNr){
@@ -61,17 +72,17 @@ class MediaRepresentation extends React.Component {
   render() {
     return(
       <React.Fragment>
-          <div id="combinationMenu">
+          <section id="combinationMenu">
               <TabDisplay updateTab = {this.updateTab} tabNr="1"/>
               <TabDisplay updateTab = {this.updateTab} tabNr="2"/>
               <TabDisplay updateTab = {this.updateTab} tabNr="3"/>
               <TabDisplay updateTab = {this.updateTab} tabNr="4"/>
-          </div>
+          </section>
           <section id="container">
               <section id="mediaContainer">
                   <section id="mediaPictureContainer">
                       <section id="picFrame">
-                          <div id="mainImage" dangerouslySetInnerHTML={{__html: this.state.svg}}/>
+                          <section id="svgImage" dangerouslySetInnerHTML={{__html: this.state.svg}}/>
                       </section>
                   </section>
                   <section id="mediaAudioContainer">
@@ -81,12 +92,12 @@ class MediaRepresentation extends React.Component {
                       </audio>
                   </section>
                   <section id="mediaTextContainer">
-                      <div id="mediaText" dangerouslySetInnerHTML={{__html: this.state.text}} />
+                      <section id="mediaText" dangerouslySetInnerHTML={{__html: this.state.text}} />
                   </section>
-                  <section id="mediaCategory">
-                      <div id="categoryHeader">Kategorier</div>
-                      <Categories setCombosCategories = {this.updateCombos}/>
-                  </section>
+              </section>
+              <section id="mediaCategory">
+                  <section id="categoryHeader">Kategorier</section>
+                  <Categories setCombosCategories = {this.updateCombos}/>
               </section>
           </section>
       </React.Fragment>

@@ -54,7 +54,7 @@ class CategoryButton extends React.Component{
 
                 {/*The div with id=this.props.categoryNameID has orginially display:none. When handleClick is called, display changes to flex*/}
 
-                <div id={this.props.categoryType}>
+                <section id={this.props.categoryType}>
 
                     {/*Creating 3 buttons for each category.
                        When a button is clicked, the setList function is called, with the chosen category as parameter*/}
@@ -63,7 +63,7 @@ class CategoryButton extends React.Component{
                     <button className="categoryChoose" onClick={() => this.setList(this.props.category2Name)}>{this.props.category2Name}</button>
                     <button className="categoryChoose" onClick={() => this.setList(this.props.category3Name)}>{this.props.category3Name}</button>
 
-                </div>
+                </section>
             </React.Fragment>
         )
     }

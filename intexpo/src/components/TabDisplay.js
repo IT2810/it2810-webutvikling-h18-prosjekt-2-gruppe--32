@@ -16,10 +16,7 @@ class TabDisplay extends React.Component {
         return (
             <React.Fragment>
                 <button onClick={() => this.setTab(this.props.tabNr)} id="combinationButton">
-                    <div id="comboLine"/>
-                    <svg height="100%" width="100%">
-                        <circle id="categoryCircle" cx="50%" cy="50%" r="25" fill="rgba(170,0,0,0.8)"/>
-                    </svg>
+                    <section id="comboText" dangerouslySetInnerHTML={{__html: "Kombinasjon " + this.props.tabNr}} />
                 </button>
             </React.Fragment>
         )

@@ -42,7 +42,6 @@ header{
 
 #combinationButton{
   display: flex;
-  position: relative;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -53,26 +52,26 @@ header{
   border:none;
 }
 
-#comboLine {
-  width: 100%;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 3px;
-  background-color: rgb(256, 0, 0);
+#comboText{
+  color:white;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: "Courier New", serif;
 }
 
 #combinationButton:hover{
   background-color: rgb(256,256,256);
 }
 
-#combinationButton:hover .comboLine{
-  background-color: rgb(0, 0, 0);
+#combinationButton:hover #comboText{
+  color: black;
 }
 
 #mediaContainer{
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 85%;
   height: 75vh;
   background-color: rgb(256,256,256);
@@ -88,18 +87,25 @@ header{
 }
 
 #picFrame{
-  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
   height: 85%;
-  background-color: rgb(209, 209, 209);
+}
+
+#svgImage{
+  width: 25%;
 }
 
 #mediaTextContainer{
   display:flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 70%;
   height: 30%;
   background-color: white;
+  text-align: center;
 }
 
 #mediaText{
@@ -115,15 +121,6 @@ header{
   width: 100%;
   height: auto;
   background-color: white;
-}
-
-audio{
-
-}
-
-#mainImage{
-  width:15%;
-  height: 15%;
 }
 
 #mediaCategory{
@@ -190,6 +187,7 @@ audio{
 }
 
 footer{
+  margin-top:0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -202,18 +200,17 @@ footer{
 /*Responsivt design for mobile enheter*/
 
 @media screen and (orientation: portrait){
-  .container{
+  #container{
     display: flex;
     flex-direction: column;
   }
-  .mediaContainer{
+  #mediaContainer{
     width: 100%;
   }
 
-  .mediaCategory{
+  #mediaCategory{
     width: 100%;
     height:10vh;
-
   }
 }
 
