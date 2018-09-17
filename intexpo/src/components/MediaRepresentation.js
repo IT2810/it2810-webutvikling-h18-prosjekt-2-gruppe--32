@@ -12,9 +12,9 @@ class MediaRepresentation extends React.Component {
     this.state = {
         combinations : [],
         tabNr : 1,
-        svgPath : "",
-        audioPath : "",
-        textPath : "",
+        svg : "",
+        audio : "",
+        text : "",
     };
   }
 
@@ -25,29 +25,37 @@ class MediaRepresentation extends React.Component {
   updateTab(newTabNr){
       this.state.tabNr = newTabNr;
       this.fetchImage(this.state.combinations[this.state.tabNr - 1][0]);
+      this.fetchAudio(this.state.combinations[this.state.tabNr - 1][1]);
+      this.fetchText(this.state.combinations[this.state.tabNr - 1][2]);
   }
 
   async fetchImage(urlPath){
-      console.log(urlPath);
       if(sessionStorage.getItem(urlPath) != null){
-          console.log("Element already loaded");
-          this.setState({svgPath: sessionStorage.getItem(urlPath)});
-          console.log("test" + this.state.svgPath);
+          this.setState({svg: sessionStorage.getItem(urlPath)});
       }
       else{
           const res = await fetch("assets" + urlPath);
           const data = await res.text();
-          this.setState({svgPath: "/assets" + urlPath});
+          this.setState({svg: "assets" + urlPath});
           sessionStorage.setItem(urlPath, data);
       }
   }
 
   fetchAudio(urlPath){
-
+      this.setState({audio : "assets" + urlPath});
+      console.log(this.state.audio);
   }
 
-  fetchText(urlPath){
-
+  async fetchText(urlPath){
+      if(sessionStorage.getItem(urlPath) != null){
+          this.setState({text: sessionStorage.getItem(urlPath)});
+      }
+      else{
+          const res = await fetch("assets" + urlPath);
+          const data = await res.text();
+          this.setState({text: "assets" + urlPath});
+          sessionStorage.setItem(urlPath, data);
+    }
   }
 
   render() {
@@ -63,17 +71,17 @@ class MediaRepresentation extends React.Component {
               <section id="mediaContainer">
                   <section id="mediaPictureContainer">
                       <section id="picFrame">
-                          <div id="mainImage" dangerouslySetInnerHTML={{__html: this.state.svgPath}}/>
+                          <div id="mainImage" dangerouslySetInnerHTML={{__html: this.state.svg}}/>
                       </section>
                   </section>
                   <section id="mediaAudioContainer">
                       <audio controls>
-                          <source src={sessionStorage.getItem('sound' + this.state.tabNr)} type = "audio/mp3"/>
+                          <source src={this.state.audio} type= "audio/mp3"/>
                           Your browser does not support the audio element
                       </audio>
                   </section>
                   <section id="mediaTextContainer">
-                      <p id="mediaText">{sessionStorage.getItem('text' + this.state.tabNr)}</p>
+                      <div id="mediaText" dangerouslySetInnerHTML={{__html: this.state.text}} />
                   </section>
                   <section id="mediaCategory">
                       <div id="categoryHeader">Kategorier</div>
