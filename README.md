@@ -32,7 +32,7 @@ Her fant vi ut at vi skulle forsøke å modellere hvilke komponenter vi fikk beh
 Dette resulterte i diagrammet under der programflyten er forsøkt modellert:
 
 
-![Diagram for komponentarkitektur](https://github.com/IT2810/it2810-webutvikling-h18-prosjekt-2-gruppe--32/komponentarkitektur.png "Komponentarktektur")
+![Diagram for komponentarkitektur](komponentarkitektur.png "Komponentarkitektur")
 
 
 Fokuset her var å oppnå hensiktsmessig gjenbruk av komponenter, hovedsaklig for å lette utvikling og eventuell feilsøking for oss selv, samt at koden skulle være så grei å vedlikeholde og videreutvikle som mulig. 
@@ -47,9 +47,9 @@ Vi har også valgt å benytte oss av media-queries for å sikre nødvendige tilp
 
 
 ### Tredjepartskomponent for AJAX-kall
-Vi har valgt å benytte biblioteket [Axios](https://github.com/axios/axios#axios) for å håndtere AJAX-kall mot våre mediafiler.
-Her stod valget i realiteten mellom Fetch (som muligens blir HTML-standard etterhvert) og Axios som ble valgt.  
-Axios ble valgt av to grunner; det har støtte for Internet Explorer (11), noe Fetch ikke har ut av boksen i følge [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#Browser_compatibility), samt at vi fant bedre og mer relevant dokumentasjon for bruk av Axios implementert mot React.
+Vi har valgt å benytte biblioteket [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) for å håndtere AJAX-kall mot våre mediafiler.
+Her stod valget i realiteten mellom valgte Fetch og alternativet Axios.  
+Fetch ble her valgt da det var veldokumentert og derfor greit å komme i gang med. Det ble også tatt i betraktning at Fetch APIet kanskje kan bli HTML-standard en dag, og at det derfor kan være greit å implementere først som sist. Alternativet Axios hadde også bra dokumentasjon, spesielt knyttet opp mot React, men Fetch ble likevel valgt da det muligens blir standard.
 
 
 ### Lagring av mediafiler hos klient
