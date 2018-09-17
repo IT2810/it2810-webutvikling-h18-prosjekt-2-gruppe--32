@@ -90,20 +90,17 @@ class Randomizer extends React.Component {
         for(let x=0; x<4; x++){
             this.combos[x] = [];
             //Find and add random image to combo
-            this.randomImageIndex = Math.floor(Math.random()*this.imageCategory.length);
-            this.image1 = this.imageCategory[this.randomImageIndex];
-            this.combos[x].push(this.image1);
-            this.imageCategory.splice(this.randomImageIndex, 1);
+            this.image1 = this.imageCategory[0];
+            this.combos[x].push(this.imageCategory[this.imageCategory.length-1]);
+            this.imageCategory.pop();
             //Find and add random sound to combo
-            this.randomSoundIndex = Math.floor(Math.random()*this.soundCategory.length);
             this.sound1 = this.soundCategory[this.randomSoundIndex];
-            this.combos[x].push(this.sound1);
-            this.soundCategory.splice(this.randomSoundIndex, 1);
+            this.combos[x].push(this.soundCategory[this.soundCategory.length-1]);
+            this.soundCategory.pop();
             //Find and add random text to combo
-            this.randomTextIndex = Math.floor(Math.random()*this.textCategory.length);
-            this.text1 = this.textCategory[this.randomTextIndex];
-            this.combos[x].push(this.text1);
-            this.textCategory.splice(this.randomTextIndex, 1);
+            this.text1 = this.textCategory[0];
+            this.combos[x].push(this.textCategory[this.textCategory.length-1]);
+            this.textCategory.pop();
         }
 
 

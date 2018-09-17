@@ -1,47 +1,55 @@
 import React from 'react';
 // axios is used for AJAX calls
-import axios from 'axios';
 import Categories from "./Categories";
 import TabDisplay from "./TabDisplay";
-
-// sets example props
-const props = {
-  imagePath: "",
-  textPath: '/text/Trump-quotes/Trump-quote1.json',
-  soundPath: '/sounds/instruments/bagpipe.mp3'
-};
 
 class MediaRepresentation extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-        combinations : [],
-        tabNr : 0,
-    };
-
     this.updateCombos = this.updateCombos.bind(this);
     this.updateTab = this.updateTab.bind(this);
+    this.fetchImage = this.fetchImage.bind(this);
+    this.state = {
+        combinations : [],
+        tabNr : 1,
+        svgPath : "",
+        audioPath : "",
+        textPath : "",
+    };
   }
 
   updateCombos(comboList){
       this.state.combinations = comboList;
-      console.log(this.state.combinations);
   }
 
-  updateTab(tabNr){
-      this.state.tabNr = tabNr;
-      console.log(this.state.tabNr);
+  updateTab(newTabNr){
+      this.state.tabNr = newTabNr;
+      this.fetchImage(this.state.combinations[this.state.tabNr - 1][0]);
   }
 
-
-  componentDidMount() {
-      for(let element in this.state.combinations[0]){
-
+  async fetchImage(urlPath){
+      console.log(urlPath);
+      if(sessionStorage.getItem(urlPath) != null){
+          console.log("Element already loaded");
+          this.setState({svgPath: sessionStorage.getItem(urlPath)});
+          console.log("test" + this.state.svgPath);
       }
+      else{
+          const res = await fetch("assets" + urlPath);
+          const data = await res.text();
+          this.setState({svgPath: "/assets" + urlPath});
+          sessionStorage.setItem(urlPath, data);
+      }
+  }
+
+  fetchAudio(urlPath){
 
   }
 
-// the code below should not be working properly
+  fetchText(urlPath){
+
+  }
+
   render() {
     return(
       <React.Fragment>
@@ -55,19 +63,17 @@ class MediaRepresentation extends React.Component {
               <section id="mediaContainer">
                   <section id="mediaPictureContainer">
                       <section id="picFrame">
-                          <img className="mainImage" src="" alt="Pic    cannot be shown at this time"/>
+                          <div id="mainImage" dangerouslySetInnerHTML={{__html: this.state.svgPath}}/>
                       </section>
                   </section>
                   <section id="mediaAudioContainer">
                       <audio controls>
-                          <source src ="" type = "audio/mp3"/>
+                          <source src={sessionStorage.getItem('sound' + this.state.tabNr)} type = "audio/mp3"/>
                           Your browser does not support the audio element
                       </audio>
                   </section>
                   <section id="mediaTextContainer">
-                      <p id="mediaText">
-                          Her burde det vært trump-quotes
-                      </p>
+                      <p id="mediaText">{sessionStorage.getItem('text' + this.state.tabNr)}</p>
                   </section>
                   <section id="mediaCategory">
                       <div id="categoryHeader">Kategorier</div>
