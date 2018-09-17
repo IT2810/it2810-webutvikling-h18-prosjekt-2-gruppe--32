@@ -53,7 +53,10 @@ class MediaRepresentation extends React.Component {
   }
 
   fetchAudio(urlPath){
-      this.setState({audio : "assets" + urlPath});
+      this.setState({audio : "assets" + urlPath}, function () {
+          this.refs.audio.pause();
+          this.refs.audio.load();
+      });
       console.log(this.state.audio);
   }
 
@@ -86,7 +89,7 @@ class MediaRepresentation extends React.Component {
                       </section>
                   </section>
                   <section id="mediaAudioContainer">
-                      <audio controls>
+                      <audio ref="audio" controls>
                           <source src={this.state.audio} type= "audio/mp3"/>
                           Your browser does not support the audio element
                       </audio>
