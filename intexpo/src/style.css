@@ -74,6 +74,14 @@ header{
   color:black;
 }
 
+#combinationButton:visited{
+  background-color: rgb(256,256,256);
+}
+
+#combinationButton:visited #comboText{
+  color:black;
+}
+
 #combinationButton:hover{
   background-color: rgb(256,256,256);
 }

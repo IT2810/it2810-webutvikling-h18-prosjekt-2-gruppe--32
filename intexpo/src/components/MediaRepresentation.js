@@ -6,12 +6,11 @@ import TabDisplay from "./TabDisplay";
 class MediaRepresentation extends React.Component {
   constructor(props) {
     super(props);
-    this.updateCombos = this.updateCombos.bind(this);
+    this.updateComboList = this.updateComboList.bind(this);
     this.updateTab = this.updateTab.bind(this);
     this.fetchImage = this.fetchImage.bind(this);
     this.fetchText = this.fetchText.bind(this);
     this.fetchAudio = this.fetchAudio.bind(this);
-
 
       this.state = {
         combinations : [],
@@ -28,12 +27,11 @@ class MediaRepresentation extends React.Component {
       this.fetchText(this.state.combinations[0][2]);
   }
 
-  updateCombos(comboList){
+  updateComboList(comboList){
       this.state.combinations = comboList;
-      console.log(this.state.combinations);
+      console.log(comboList);
+      console.log("køll2");
   }
-
-
 
   updateTab(newTabNr){
       this.state.tabNr = newTabNr;
@@ -50,8 +48,8 @@ class MediaRepresentation extends React.Component {
           //kall updatenoe
           const res = await fetch("assets" + urlPath);
           const data = await res.text();
-          this.setState({svg: "assets" + urlPath});
           sessionStorage.setItem(urlPath, data);
+          this.setState({svg: sessionStorage.getItem(urlPath)});
       }
   }
 
@@ -60,7 +58,6 @@ class MediaRepresentation extends React.Component {
           this.refs.audio.pause();
           this.refs.audio.load();
       });
-      console.log(this.state.audio);
   }
 
   async fetchText(urlPath){
@@ -70,8 +67,8 @@ class MediaRepresentation extends React.Component {
       else{
           const res = await fetch("assets" + urlPath);
           const data = await res.text();
-          this.setState({text: "assets" + urlPath});
           sessionStorage.setItem(urlPath, data);
+          this.setState({text: sessionStorage.getItem(urlPath)});
     }
   }
 
@@ -93,7 +90,7 @@ class MediaRepresentation extends React.Component {
                           </section>
                       </section>
                       <section id="mediaAudioContainer">
-                          <audio ref="audio" controls>
+                          <audio ref="audio" loop controls>
                               <source src={this.state.audio} type= "audio/mp3"/>
                               Your browser does not support the audio element
                           </audio>
@@ -105,7 +102,7 @@ class MediaRepresentation extends React.Component {
               </section>
               <section id="mediaCategory">
                   <section id="categoryHeader">Kategorier</section>
-                  <Categories setCombosCategories = {this.updateCombos}/>
+                  <Categories setCombosCategories = {this.updateComboList} />
               </section>
           </section>
       </React.Fragment>
