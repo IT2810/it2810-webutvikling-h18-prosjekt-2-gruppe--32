@@ -6,8 +6,7 @@ import '../style.css';
 class Footer extends React.Component {
     render(){
         return (
-            <footer>!Header</footer>
-
+            <footer><a href="https://www.ntnu.no/studier/emner/IT2810">Gruppe 32 - IT 2810</a></footer>
         )
     }
 }
