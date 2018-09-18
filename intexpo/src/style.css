@@ -49,7 +49,7 @@ header{
   height: 7vh;
 }
 
-#combinationButton{
+.combinationButton{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,27 +71,43 @@ header{
   display: none;
 }
 
-#combinationButton:active{
+.combinationButton:active{
   background-color: rgb(256,256,256);
 }
 
-#combinationButton:active #comboText{
+.combinationButton:active .comboText{
   color:black;
 }
 
-#combinationButton:visited{
-  background-color: rgb(256,256,256);
+.combinationButton:visited{
+  background-color: rgb(256,256,0);
+}
+.combinationButton:focus{
+  background-color: "yellow";
 }
 
-#combinationButton:visited #comboText{
+.combinationButtonSelected{
+  background-color: "blue";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width:24.9%;
+  background-color: grey;
+  height: 100%;
+  padding:0;
+  border:none;
+}
+
+.combinationButton:visited{
   color:black;
 }
 
-#combinationButton:hover{
+.combinationButton:hover{
   background-color: rgb(256,256,256);
 }
 
-#combinationButton:hover #comboText{
+.combinationButton:hover .comboText{
   color: black;
 }
 
