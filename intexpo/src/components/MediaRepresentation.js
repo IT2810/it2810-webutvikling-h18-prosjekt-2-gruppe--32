@@ -22,16 +22,18 @@ class MediaRepresentation extends React.Component {
     };
   }
 
-  updateCombos(comboList){
-      this.state.combinations = comboList;
-      console.log(this.state.combinations);
-  }
-
   componentDidMount(){
       this.fetchImage(this.state.combinations[0][0]);
       this.fetchAudio(this.state.combinations[0][1]);
       this.fetchText(this.state.combinations[0][2]);
   }
+
+  updateCombos(comboList){
+      this.state.combinations = comboList;
+      console.log(this.state.combinations);
+  }
+
+
 
   updateTab(newTabNr){
       this.state.tabNr = newTabNr;
@@ -45,6 +47,7 @@ class MediaRepresentation extends React.Component {
           this.setState({svg: sessionStorage.getItem(urlPath)});
       }
       else{
+          //kall updatenoe
           const res = await fetch("assets" + urlPath);
           const data = await res.text();
           this.setState({svg: "assets" + urlPath});
@@ -75,27 +78,29 @@ class MediaRepresentation extends React.Component {
   render() {
     return(
       <React.Fragment>
-          <section id="combinationMenu">
-              <TabDisplay updateTab = {this.updateTab} tabNr="1"/>
-              <TabDisplay updateTab = {this.updateTab} tabNr="2"/>
-              <TabDisplay updateTab = {this.updateTab} tabNr="3"/>
-              <TabDisplay updateTab = {this.updateTab} tabNr="4"/>
-          </section>
           <section id="container">
-              <section id="mediaContainer">
-                  <section id="mediaPictureContainer">
-                      <section id="picFrame">
-                          <section id="svgImage" dangerouslySetInnerHTML={{__html: this.state.svg}}/>
+              <section id="innerContainer">
+                  <section id="combinationMenu">
+                      <TabDisplay updateTab = {this.updateTab} tabNr="1"/>
+                      <TabDisplay updateTab = {this.updateTab} tabNr="2"/>
+                      <TabDisplay updateTab = {this.updateTab} tabNr="3"/>
+                      <TabDisplay updateTab = {this.updateTab} tabNr="4"/>
+                  </section>
+                  <section id="mediaContainer">
+                      <section id="mediaPictureContainer">
+                          <section id="picFrame">
+                              <section id="svgImage" dangerouslySetInnerHTML={{__html: this.state.svg}}/>
+                          </section>
                       </section>
-                  </section>
-                  <section id="mediaAudioContainer">
-                      <audio ref="audio" controls>
-                          <source src={this.state.audio} type= "audio/mp3"/>
-                          Your browser does not support the audio element
-                      </audio>
-                  </section>
-                  <section id="mediaTextContainer">
-                      <section id="mediaText" dangerouslySetInnerHTML={{__html: this.state.text}} />
+                      <section id="mediaAudioContainer">
+                          <audio ref="audio" controls>
+                              <source src={this.state.audio} type= "audio/mp3"/>
+                              Your browser does not support the audio element
+                          </audio>
+                      </section>
+                      <section id="mediaTextContainer">
+                          <section id="mediaText" dangerouslySetInnerHTML={{__html: this.state.text}} />
+                      </section>
                   </section>
               </section>
               <section id="mediaCategory">
