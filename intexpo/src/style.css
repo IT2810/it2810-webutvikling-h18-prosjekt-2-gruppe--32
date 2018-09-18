@@ -1,5 +1,5 @@
 * {
-  font-family: Verdana, sans-serif;
+  font-family: Helvetica, sans-serif;
 }
 
 body {
@@ -7,7 +7,6 @@ body {
   flex-direction: column;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
   width: 100%;
   min-height: 100vh;
   background-color: rgb(256,256,256);
@@ -22,7 +21,6 @@ header{
   height: 10vh;
   color: white;
   font-size: 40px;
-  font-family: "Bauhaus 93";
 }
 
 /*Container for the entire body minus header and footer*/
@@ -67,7 +65,10 @@ header{
   color:white;
   font-size: 15px;
   font-weight: bold;
-  font-family: "Courier New", serif;
+}
+
+#smallCombo {
+  display: none;
 }
 
 .combinationButton:active{
@@ -139,12 +140,13 @@ header{
 
 #svgImage{
   width: 25%;
+  min-width: 200px;
+  overflow: hidden;
 }
 
 #mediaTextContainer{
-  display:flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
+  padding: 10px;
   width: 70%;
   height: 30%;
   background-color: white;
@@ -153,7 +155,6 @@ header{
 
 #mediaText{
   font-size: 15px;
-  font-family: "Courier New", serif;
   color: black;
 }
 
@@ -161,7 +162,7 @@ header{
   display:flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 90%;
   height: auto;
   background-color: white;
 }
@@ -180,11 +181,10 @@ header{
   height: 7vh;
   background-color: rgb(0,0,0);
   color: white;
-  font-family: "Courier New", serif;
   font-size: 20px;
 }
 
-#dropdownButton{
+.dropdownButton{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -192,7 +192,6 @@ header{
   height: 7vh;
   background-color: rgba(170,0,0,0.8);
   color: white;
-  font-family: "Courier New", serif;
   font-size: 20px;
   margin-top: 5px;
   padding:0;
@@ -213,12 +212,11 @@ header{
 }
 
 .categoryChoose{
-  width:100%;
+  width: 100%;
   height: 100%;
   background-color: rgb(220, 220, 220);
   border:none;
   font-size: 17px;
-  font-family: "Courier New", serif;
   margin-top: 3px;
 
 }
@@ -248,17 +246,41 @@ footer > a {
 /*Responsivt design for mobile enheter*/
 
 @media screen and (orientation: portrait){
-  #container{
+  #container {
     display: flex;
     flex-direction: column;
+    height: auto;
   }
-  #mediaContainer{
+
+  #mediaContainer {
     width: 100%;
   }
 
-  #mediaCategory{
+  #combinationButton {
+    width: 25%;
+  }
+
+  /* hides "Kombinasjon + tabnumber " */
+  #largeCombo {
+    display: none;
+  }
+
+  /* displays "tabnumber" instead */
+  #smallCombo {
+    display: inline;
+  }
+
+  #mediaTextContainer {
+    width: 95%;
+  }
+
+  #mediaCategory {
     width: 100%;
-    height:10vh;
+    min-height:10vh;
+  }
+
+  footer {
+    display: none;
   }
 }
 

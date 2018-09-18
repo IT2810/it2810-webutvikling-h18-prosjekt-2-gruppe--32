@@ -23,7 +23,7 @@ class CategoryButton extends React.Component{
                 {/* Creating a button for each category (Bilder, lyd, tekst)
                     When the button is  clicked, the function handleClick is called.*/}
 
-                <button id="dropdownButton">{this.props.categoryType}</button>
+                <button class="dropdownButton">{this.props.categoryType}</button>
 
                 {/*The div with id=this.props.categoryNameID has orginially display:none. When handleClick is called, display changes to flex*/}
 
