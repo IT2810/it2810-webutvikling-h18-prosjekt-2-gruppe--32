@@ -6,38 +6,6 @@ class CategoryButton extends React.Component{
 
     constructor(props){
         super(props);
-
-        this.state = {
-            isclicked : false,
-        };
-
-
-        //Props for CategoryButton
-        this.props = {
-            category1Name : "",
-            category2Name : "",
-            category3Name : "",
-            categoryType : "",
-        };
-    }
-
-    handleClick(categoryType){
-        //If you click one button while another is "open" and showing categories, this will close that one.
-        document.getElementById("Bilder").style.display = "none";
-        document.getElementById("Lyd").style.display = "none";
-        document.getElementById("Tekst").style.display = "none";
-
-
-        //Checking whether the "isclicked"-state    is true or false.s
-        //False = open dropdown | True = close dropdown
-        if(!this.state.isclicked){
-            document.getElementById(categoryType).style.display = "flex";
-            this.state.isclicked = true;
-        }
-        else{
-            document.getElementById(categoryType).style.display = "none";
-            this.state.isclicked = false;
-        }
     }
 
     setList(chosenCategory){
@@ -59,11 +27,11 @@ class CategoryButton extends React.Component{
                 {/* Creating a button for each category (Bilder, lyd, tekst)
                     When the button is  clicked, the function handleClick is called.*/}
 
-                <button id="dropdownButton" onClick={() => this.handleClick(this.props.categoryType)}>{this.props.categoryType}</button>
+                <button id="dropdownButton">{this.props.categoryType}</button>
 
                 {/*The div with id=this.props.categoryNameID has orginially display:none. When handleClick is called, display changes to flex*/}
 
-                <div id={this.props.categoryType}>
+                <section id={this.props.categoryType}>
 
                     {/*Creating 3 buttons for each category.
                        When a button is clicked, the setList function is called, with the chosen category as parameter*/}
@@ -72,7 +40,7 @@ class CategoryButton extends React.Component{
                     <button className="categoryChoose" onClick={() => this.setList(this.props.category2Name)}>{this.props.category2Name}</button>
                     <button className="categoryChoose" onClick={() => this.setList(this.props.category3Name)}>{this.props.category3Name}</button>
 
-                </div>
+                </section>
             </React.Fragment>
         )
     }

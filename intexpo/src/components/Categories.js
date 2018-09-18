@@ -1,6 +1,7 @@
 import React from 'react';
 import '../style.css';
 import CategoryButton from "./CategoryButton";
+import Randomizer from "./Randomizer";
 
 class Categories extends React.Component {
     constructor(props){
@@ -19,31 +20,36 @@ class Categories extends React.Component {
         this.setImage = this.setImage.bind(this);
         this.setSound = this.setSound.bind(this);
         this.setText = this.setText.bind(this);
-    }
+        this.setCombos = this.setCombos.bind(this);
+        }
 
-    callRandomizer(){
-        //SEND NOE TIL RANDOMIZER HER
-    }
+
 
     //Functions to set the state of image, sound and text
     //The parameters are being sent from CategoryButton.js
     setImage(chosenCategory){
         this.state.image = chosenCategory;
         this.state.listToRandomizer[0] = chosenCategory;
-        alert(this.state.listToRandomizer)
+        this.forceUpdate();
+        this.setCombos(this.state.listToRandomizer)
     }
 
     setSound(chosenCategory){
         this.state.sound = chosenCategory;
         this.state.listToRandomizer[1] = chosenCategory;
-        alert(this.state.listToRandomizer)
+        this.forceUpdate();
+        this.setCombos(this.state.listToRandomizer)
     }
 
     setText(chosenCategory){
         this.state.text = chosenCategory;
         this.state.listToRandomizer[2] = chosenCategory;
-        alert(this.state.listToRandomizer)
+        this.forceUpdate();
+        this.setCombos(this.state.listToRandomizer)
+    }
 
+    setCombos(comboList){
+        this.props.setCombosCategories(comboList);
     }
 
     render(){
@@ -52,8 +58,9 @@ class Categories extends React.Component {
                 {/*Adding three CategoryButton components
                    Each button has its own function that are being passed from Categories to CategoryButton
                    Also setting props for CategoryButton*/}
+                <Randomizer setCategoriesRandomizer={this.setCombos} selectedCategories = {this.state.listToRandomizer}/>
                 <CategoryButton setImage = {this.setImage} category1Name="Abstrakt" category2Name="Dyr" category3Name="Biler" categoryType="Bilder"/>
-                <CategoryButton setSound = {this.setSound} category1Name="Intstrumenter" category2Name="Musikk" category3Name="Vær" categoryType="Lyd"/>
+                <CategoryButton setSound = {this.setSound} category1Name="Instrumenter" category2Name="Musikk" category3Name="Vær" categoryType="Lyd"/>
                 <CategoryButton setText = {this.setText} category1Name="Språk" category2Name="One-liners" category3Name="Trump-quotes" categoryType="Tekst"/>
             </React.Fragment>
         )

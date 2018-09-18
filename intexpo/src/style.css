@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   background-color: rgb(256,256,256);
 }
@@ -29,6 +29,13 @@ header{
   height: 85vh;
 }
 
+#innerContainer{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 85vh;
+}
+
 
 #combinationMenu{
   display: flex;
@@ -37,12 +44,11 @@ header{
   align-items: center;
   width: 100%;
   background-color: rgb(256,256,256);
-  height: 10vh;
+  height: 7vh;
 }
 
 #combinationButton{
   display: flex;
-  position: relative;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -53,33 +59,49 @@ header{
   border:none;
 }
 
-#comboLine {
-  width: 100%;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 3px;
-  background-color: rgb(256, 0, 0);
+#comboText{
+  color:white;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: "Courier New", serif;
+}
+
+#combinationButton:active{
+  background-color: rgb(256,256,256);
+}
+
+#combinationButton:active #comboText{
+  color:black;
+}
+
+#combinationButton:visited{
+  background-color: rgb(256,256,256);
+}
+
+#combinationButton:visited #comboText{
+  color:black;
 }
 
 #combinationButton:hover{
   background-color: rgb(256,256,256);
 }
 
-#combinationButton:hover .comboLine{
-  background-color: rgb(0, 0, 0);
+#combinationButton:hover #comboText{
+  color: black;
 }
 
 #mediaContainer{
   display: flex;
   flex-direction: column;
-  width: 85%;
-  height: 75vh;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 78vh;
   background-color: rgb(256,256,256);
 }
 
 #mediaPictureContainer{
-  width:100%;
+  width:85%;
   height: 70%;
   display: flex;
   justify-content: center;
@@ -88,24 +110,40 @@ header{
 }
 
 #picFrame{
-  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
   height: 85%;
-  background-color: rgb(209, 209, 209);
+}
+
+#svgImage{
+  width: 25%;
 }
 
 #mediaTextContainer{
   display:flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 70%;
   height: 30%;
   background-color: white;
+  text-align: center;
 }
 
 #mediaText{
   font-size: 15px;
   font-family: "Courier New", serif;
   color: black;
+}
+
+#mediaAudioContainer{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  background-color: white;
 }
 
 #mediaCategory{
@@ -119,7 +157,7 @@ header{
   justify-content: center;
   align-items: center;
   width:100%;
-  height: 10vh;
+  height: 7vh;
   background-color: rgb(0,0,0);
   color: white;
   font-family: "Courier New", serif;
@@ -131,7 +169,7 @@ header{
   justify-content: center;
   align-items: center;
   width:100%;
-  height: 10vh;
+  height: 7vh;
   background-color: rgba(170,0,0,0.8);
   color: white;
   font-family: "Courier New", serif;
@@ -148,15 +186,15 @@ header{
 }
 
 #Bilder, #Lyd, #Tekst{
-  display:none;
+  display:flex;
   flex-direction: column;
   width:auto;
-  height: auto;
+  height: 18vh;
 }
 
 .categoryChoose{
   width:100%;
-  height: 7vh;
+  height: 100%;
   background-color: rgb(220, 220, 220);
   border:none;
   font-size: 17px;
@@ -172,6 +210,7 @@ header{
 }
 
 footer{
+  margin-top:0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -184,18 +223,17 @@ footer{
 /*Responsivt design for mobile enheter*/
 
 @media screen and (orientation: portrait){
-  .container{
+  #container{
     display: flex;
     flex-direction: column;
   }
-  .mediaContainer{
+  #mediaContainer{
     width: 100%;
   }
 
-  .mediaCategory{
+  #mediaCategory{
     width: 100%;
     height:10vh;
-
   }
 }
 

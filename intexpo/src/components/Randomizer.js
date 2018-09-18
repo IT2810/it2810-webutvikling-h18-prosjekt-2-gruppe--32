@@ -1,6 +1,7 @@
 import React from 'react';
 import '../style.css';
-import AjaxHandler from './ajaxHandler.js';
+import MediaRepresentation from "./MediaRepresentation";
+import TabDisplay from "./TabDisplay";
 
 class Randomizer extends React.Component {
     constructor(props){
@@ -17,6 +18,7 @@ class Randomizer extends React.Component {
         language : ['/text/Language/French.json', '/text/Language/German.json', '/text/Language/Nynorsk.json', '/text/Language/Spanish.json'],
         oneliners : ['/text/One-liners/One-liner1.json', '/text/One-liners/One-liner2.json', '/text/One-liners/One-liner3.json','/text/One-liners/One-liner4.json']
       };
+
       this.combo1 = []; this.combo2 = []; this.combo3 = [];this.combo4 = [];
       this.combos=[this.combo1, this.combo2, this.combo3, this.combo4];
       this.imageCategory = [];
@@ -28,98 +30,84 @@ class Randomizer extends React.Component {
       this.text1 = 0;
       this.randomSoundIndex = 0;
       this.sound1 = 0;
+
     }
 
     render(){
-      //Some logic
-      //Get selected categories
-      console.log("Selected categories: " + this.state.selectedCategories);
-      //Images
-      if(this.state.selectedCategories[0]==="Abstrakt"){
-        for(let x=0; x<this.state.abstract.length; x++){
-          this.imageCategory.push(this.state.abstract[x]);
+        this.state.selectedCategories = this.props.selectedCategories;
+        //Some logic
+        //Get selected categories
+        //Images
+        if(this.state.selectedCategories[0]==="Abstrakt"){
+            for(let x=0; x<this.state.abstract.length; x++){
+                this.imageCategory.push(this.state.abstract[x]);
+            }
         }
-        console.log("IMAGE CATEGORY: "+this.imageCategory);
-      }
-      else if(this.state.selectedCategories[0]==="Dyr"){
-        for(let x=0; x<this.state.animals.length; x++){
-          this.imageCategory.push(this.state.animals[x]);
+        else if(this.state.selectedCategories[0]==="Dyr"){
+            for(let x=0; x<this.state.animals.length; x++){
+                this.imageCategory.push(this.state.animals[x]);
+            }
         }
-        console.log("IMAGE CATEGORY: "+this.imageCategory);
-      }
-      else if(this.state.selectedCategories[0]==="Biler"){
-        for(let x=0; x<this.state.cars.length; x++){
-          this.imageCategory.push(this.state.cars[x]);
+        else if(this.state.selectedCategories[0]==="Biler"){
+            for(let x=0; x<this.state.cars.length; x++){
+                this.imageCategory.push(this.state.cars[x]);
+            }
         }
-        console.log("IMAGE CATEGORY: "+this.imageCategory);
-      }
-      //Sounds
-      if(this.state.selectedCategories[1]==="Instrumenter"){
-        for(let x=0; x<this.state.instrument.length; x++){
-          this.soundCategory.push(this.state.instrument[x]);
+        //Sounds
+        if(this.state.selectedCategories[1]==="Instrumenter"){
+            for(let x=0; x<this.state.instrument.length; x++){
+                this.soundCategory.push(this.state.instrument[x]);
+            }
         }
-        console.log("SOUND CATEGORY: "+this.soundCategory);
-      }
-      else if(this.state.selectedCategories[1]==="Musikk"){
-        for(let x=0; x<this.state.music.length; x++){
-          this.soundCategory.push(this.state.music[x]);
+        else if(this.state.selectedCategories[1]==="Musikk"){
+            for(let x=0; x<this.state.music.length; x++){
+                this.soundCategory.push(this.state.music[x]);
+            }
         }
-        console.log("SOUND CATEGORY: "+this.soundCategory);
-      }
-      else if(this.state.selectedCategories[1]==="Vær"){
-        for(let x=0; x<this.state.weather.length; x++){
-          this.soundCategory.push(this.state.weather[x]);
+        else if(this.state.selectedCategories[1]==="Vær"){
+            for(let x=0; x<this.state.weather.length; x++){
+                this.soundCategory.push(this.state.weather[x]);
+            }
         }
-        console.log("SOUND CATEGORY: "+this.soundCategory);
-      }
-      //Text
-      if(this.state.selectedCategories[2]==="Språk"){
-        for(let x=0; x<this.state.language.length; x++){
-          this.textCategory.push(this.state.language[x]);
+        //Text
+        if(this.state.selectedCategories[2]==="Språk"){
+            for(let x=0; x<this.state.language.length; x++){
+                this.textCategory.push(this.state.language[x]);
+            }
         }
-        console.log("TEXT CATEGORY: "+this.textCategory);
-      }
-      else if(this.state.selectedCategories[2]==="One-liners"){
-        for(let x=0; x<this.state.oneliners.length; x++){
-          this.textCategory.push(this.state.oneliners[x]);
+        else if(this.state.selectedCategories[2]==="One-liners"){
+            for(let x=0; x<this.state.oneliners.length; x++){
+                this.textCategory.push(this.state.oneliners[x]);
+            }
         }
-        console.log("TEXT CATEGORY: "+this.textCategory);
-      }
-      else if(this.state.selectedCategories[2]==="Trump-quotes"){
-        for(let x=0; x<this.state.trump.length; x++){
-          this.textCategory.push(this.state.trump[x]);
+        else if(this.state.selectedCategories[2]==="Trump-quotes"){
+            for(let x=0; x<this.state.trump.length; x++){
+                this.textCategory.push(this.state.trump[x]);
+            }
         }
-        console.log("TEXT CATEGORY: "+this.textCategory);
-      }
 
-      //Put random elements in different combinations
-     for(let x=0; x<4; x++){
-       //Find and add random image to combo
-       this.randomImageIndex = Math.floor(Math.random()*this.imageCategory.length);
-       this.image1 = this.imageCategory[this.randomImageIndex];
-       this.combos[x].push(this.image1);
-       this.imageCategory.splice(this.randomImageIndex, 1);
-       //Find and add random sound to combo
-       this.randomSoundIndex = Math.floor(Math.random()*this.soundCategory.length);
-       this.sound1 = this.soundCategory[this.randomSoundIndex];
-       this.combos[x].push(this.sound1);
-       this.soundCategory.splice(this.randomSoundIndex, 1);
-       //Find and add random text to combo
-       this.randomTextIndex = Math.floor(Math.random()*this.textCategory.length);
-       this.text1 = this.textCategory[this.randomTextIndex];
-       this.combos[x].push(this.text1);
-       this.textCategory.splice(this.randomTextIndex, 1);
-     }
-     console.log("combo 1: "+ this.combos[0]);
-     console.log("combo 2: "+ this.combos[1]);
-     console.log("combo 3: "+ this.combos[2]);
-     console.log("combo 4: "+ this.combos[3]);
-        return (
-            //<AjaxHandler /* Pass combos-list as props here. */ />
-            //Example:
-            //<AjaxHandler combos={this.combos} />
-            null
-        )
+        //Put random elements in different combinations
+        for(let x=0; x<4; x++){
+            this.combos[x] = [];
+            //Find and add random image to combo
+            this.image1 = this.imageCategory[0];
+            this.combos[x].push(this.imageCategory[this.imageCategory.length-1]);
+            this.imageCategory.pop();
+            //Find and add random sound to combo
+            this.sound1 = this.soundCategory[this.randomSoundIndex];
+            this.combos[x].push(this.soundCategory[this.soundCategory.length-1]);
+            this.soundCategory.pop();
+            //Find and add random text to combo
+            this.text1 = this.textCategory[0];
+            this.combos[x].push(this.textCategory[this.textCategory.length-1]);
+            this.textCategory.pop();
+        }
+
+
+        this.props.setCategoriesRandomizer(this.combos);
+      return(
+          null
+      )
     }
 }
 export default Randomizer;
