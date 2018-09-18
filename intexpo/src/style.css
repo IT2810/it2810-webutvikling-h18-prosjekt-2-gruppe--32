@@ -1,3 +1,7 @@
+* {
+  font-family: Verdana, sans-serif;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -233,6 +237,11 @@ footer{
   height: 5vh;
   width: 100%;
   background-color: rgba(170,0,0,0.8);
+}
+
+footer > a {
+  text-decoration: none;
+  color: white;
 }
 
 /*----------------------------------------------------*/
