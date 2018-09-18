@@ -1,12 +1,7 @@
 import React from 'react';
 import '../style.css';
-import MediaRepresentation from "./MediaRepresentation";
 
 class TabDisplay extends React.Component {
-
-    constructor(props){
-        super(props);
-    }
 
     setTab(tabNr){
         this.props.updateTab(tabNr);

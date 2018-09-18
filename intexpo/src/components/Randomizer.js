@@ -1,7 +1,5 @@
 import React from 'react';
 import '../style.css';
-import MediaRepresentation from "./MediaRepresentation";
-import TabDisplay from "./TabDisplay";
 
 class Randomizer extends React.Component {
     constructor(props){
@@ -24,12 +22,6 @@ class Randomizer extends React.Component {
       this.imageCategory = [];
       this.soundCategory = [];
       this.textCategory = [];
-      this.randomImageIndex = 0;
-      this.image1 = 0;
-      this.randomTextIndex = 0;
-      this.text1 = 0;
-      this.randomSoundIndex = 0;
-      this.sound1 = 0;
 
     }
 
@@ -94,7 +86,7 @@ class Randomizer extends React.Component {
             this.combos[x].push(this.imageCategory[this.imageCategory.length-1]);
             this.imageCategory.pop();
             //Find and add random sound to combo
-            this.sound1 = this.soundCategory[this.randomSoundIndex];
+            this.sound1 = this.soundCategory[0];
             this.combos[x].push(this.soundCategory[this.soundCategory.length-1]);
             this.soundCategory.pop();
             //Find and add random text to combo
@@ -102,7 +94,6 @@ class Randomizer extends React.Component {
             this.combos[x].push(this.textCategory[this.textCategory.length-1]);
             this.textCategory.pop();
         }
-
 
         this.props.setCategoriesRandomizer(this.combos);
       return(

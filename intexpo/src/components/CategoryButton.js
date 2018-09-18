@@ -4,10 +4,6 @@ import '../style.css';
 class CategoryButton extends React.Component{
     //Creating a constructor to set a state to the button if it clicked or not.
 
-    constructor(props){
-        super(props);
-    }
-
     setList(chosenCategory){
         //Passing the chosen cateogory through setImage, setSound and setText up to Categories.js
         if(this.props.categoryType === "Bilder"){
