@@ -30,11 +30,19 @@ class MediaRepresentation extends React.Component {
   updateComboList(comboList){
       this.state.combinations = comboList;
       console.log(comboList);
-      console.log("køll2");
+      console.log("kÃ¸ll2");
   }
 
   updateTab(newTabNr){
       this.state.tabNr = newTabNr;
+      //Loop through eeach tab and reset their className
+      for(let x=1; x<5; x++){
+          let item =document.getElementById("combinationButton"+x);
+          item.className = item.className.replace("Selected", "");
+      }
+      //Change classname of the selected tab in order to get a different styling
+      document.getElementById("combinationButton"+this.state.tabNr).className += "Selected";
+      //Update images, audio and text with the new tab number
       this.fetchImage(this.state.combinations[this.state.tabNr - 1][0]);
       this.fetchAudio(this.state.combinations[this.state.tabNr - 1][1]);
       this.fetchText(this.state.combinations[this.state.tabNr - 1][2]);
