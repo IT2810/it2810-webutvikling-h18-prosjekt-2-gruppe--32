@@ -32,7 +32,7 @@ Her fant vi ut at vi skulle forsøke å modellere hvilke komponenter vi fikk beh
 Dette resulterte i diagrammet under der programflyten er forsøkt modellert:
 
 
-![Diagram for komponentarkitektur](komponentarkitektur.png "Komponentarkitektur")
+![Diagram for komponentarkitektur](componentarchitecture.png "Komponentarkitektur")
 
 
 Fokuset her var å oppnå hensiktsmessig gjenbruk av komponenter, hovedsaklig for å lette utvikling og eventuell feilsøking for oss selv, samt at koden skulle være så grei å vedlikeholde og videreutvikle som mulig. 
