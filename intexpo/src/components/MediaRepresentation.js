@@ -31,6 +31,7 @@ class MediaRepresentation extends React.Component {
       this.setSound(this.state.currSound);
       this.setText(this.state.currText);
 
+
   }
 
   updateTab(newTabNr){
@@ -39,6 +40,13 @@ class MediaRepresentation extends React.Component {
           this.setImg(this.state.currImg);
           this.setSound(this.state.currSound);
           this.setText(this.state.currText);
+          //Loop through eeach tab and reset their className
+          for(let x=1; x<5; x++){
+              let item =document.getElementById("combinationButton"+x);
+              item.className = item.className.replace("Selected", "");
+          }
+      //Change classname of the selected tab in order to get a different styling
+      document.getElementById("combinationButton"+this.state.tabNr).className += "Selected";
       });
   }
 
@@ -60,8 +68,7 @@ class MediaRepresentation extends React.Component {
           console.log("Currtext" + this.state.currText + "  Text: " + text);
           this.fetchText("text/" + this.state.currText + "/" + this.state.tabNr + ".json");
       });
-  }
-
+    
   async fetchImage(urlPath){
       if(sessionStorage.getItem(urlPath) != null){
           this.setState({svg: sessionStorage.getItem(urlPath)});

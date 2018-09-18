@@ -10,8 +10,8 @@ class TabDisplay extends React.Component {
     render(){
         return (
             <React.Fragment>
-                <button onClick={() => this.setTab(this.props.tabNr)} id="combinationButton">
-                    <section id="comboText" dangerouslySetInnerHTML={{__html: "Kombinasjon " + this.props.tabNr}} />
+                <button onClick={() => this.setTab(this.props.tabNr)} className="combinationButton" id={"combinationButton" + this.props.tabNr}>
+                    <section className="comboText" id={"comboText"+this.props.tabNr} dangerouslySetInnerHTML={{__html: "Kombinasjon " + this.props.tabNr}} />
                 </button>
             </React.Fragment>
         )
