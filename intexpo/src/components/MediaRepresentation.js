@@ -1,5 +1,4 @@
 import React from 'react';
-// axios is used for AJAX calls
 import Categories from "./Categories";
 import TabDisplay from "./TabDisplay";
 
@@ -11,42 +10,38 @@ class MediaRepresentation extends React.Component {
     this.fetchText = this.fetchText.bind(this);
     this.fetchSound = this.fetchSound.bind(this);
     this.setImg = this.setImg.bind(this);
-      this.setSound = this.setSound.bind(this);
-      this.setText = this.setText.bind(this);
+    this.setSound = this.setSound.bind(this);
+    this.setText = this.setText.bind(this);
 
-
-      this.state = {
-          currImg : "Abstrakt",
-          currSound : "Instrumenter",
-          currText : "One-liners",
-          svg : "",
-          sound : "",
-          text : "",
-          tabNr : 1,
+    this.state = {
+        currImg : "Abstrakt",
+        currSound : "Instrumenter",
+        currText : "One-liners",
+        svg : "",
+        sound : "",
+        text : "",
+        tabNr : 1,
     };
   }
 
   componentDidMount(){
-      this.setImg(this.state.currImg);
-      this.setSound(this.state.currSound);
-      this.setText(this.state.currText);
-
-
+      this.updateTab(1);
   }
 
   updateTab(newTabNr){
       this.setState({tabNr : newTabNr}, function () {
-          console.log(this.state.tabNr);
           this.setImg(this.state.currImg);
           this.setSound(this.state.currSound);
           this.setText(this.state.currText);
+
           //Loop through eeach tab and reset their className
           for(let x=1; x<5; x++){
-              let item =document.getElementById("combinationButton"+x);
-              item.className = item.className.replace("Selected", "");
+              let comboButton = document.getElementById("combinationButton"+x);
+              comboButton.className = comboButton.className.replace("Selected", "");
           }
-      //Change classname of the selected tab in order to get a different styling
-      document.getElementById("combinationButton"+this.state.tabNr).className += "Selected";
+          //Change classname of the selected tab in order to get a different styling
+          document.getElementById("combinationButton"+this.state.tabNr).className += "Selected";
+          //Update images, audio and text with the new tab number
       });
   }
 
@@ -62,12 +57,11 @@ class MediaRepresentation extends React.Component {
       });
   }
 
-  setText(text){
-
-      this.setState({currText : text}, function () {
-          console.log("Currtext" + this.state.currText + "  Text: " + text);
+  setText(text) {
+      this.setState({currText: text}, function () {
           this.fetchText("text/" + this.state.currText + "/" + this.state.tabNr + ".json");
       });
+  }
     
   async fetchImage(urlPath){
       if(sessionStorage.getItem(urlPath) != null){
@@ -113,10 +107,9 @@ class MediaRepresentation extends React.Component {
                   </section>
                   <section id="mediaContainer">
                       <section id="mediaPictureContainer">
-                          <section id="picFrame">
-                              <section id="svgImage" dangerouslySetInnerHTML={{__html: this.state.svg}}/>
-                          </section>
+                          <section id="svgImage" dangerouslySetInnerHTML={{__html: this.state.svg}}/>
                       </section>
+
                       <section id="mediaAudioContainer">
                           <audio ref="audio" loop controls>
                               <source src={this.state.audio} type= "audio/mp3"/>
