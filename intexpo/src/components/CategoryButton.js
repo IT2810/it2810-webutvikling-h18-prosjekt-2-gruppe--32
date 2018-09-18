@@ -7,6 +7,9 @@ class CategoryButton extends React.Component{
     constructor(props){
         super(props);
 
+        this.state = {
+            chosen : "",
+        };
     }
 
     setList(chosenCategory){
@@ -27,9 +30,9 @@ class CategoryButton extends React.Component{
             <React.Fragment>
                 <button id="categoryButton">{this.props.categoryType}</button>
                 <section id={this.props.categoryType}>
-                    <button className="categoryChoose" onClick={() => this.setList(this.props.category1Name)}>{this.props.category1Name}</button>
-                    <button className="categoryChoose" onClick={() => this.setList(this.props.category2Name)}>{this.props.category2Name}</button>
-                    <button className="categoryChoose" onClick={() => this.setList(this.props.category3Name)}>{this.props.category3Name}</button>
+                    <button id="btn1" className="categoryChoose" onClick={() => this.setList(this.props.category1Name)}>{this.props.category1Name}</button>
+                    <button id="btn2" className="categoryChoose" onClick={() => this.setList(this.props.category2Name)}>{this.props.category2Name}</button>
+                    <button id="btn3" className="categoryChoose" onClick={() => this.setList(this.props.category3Name)}>{this.props.category3Name}</button>
                 </section>
             </React.Fragment>
         )

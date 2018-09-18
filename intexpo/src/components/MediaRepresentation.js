@@ -37,10 +37,15 @@ class MediaRepresentation extends React.Component {
           //Loop through eeach tab and reset their className
           for(let x=1; x<5; x++){
               let comboButton = document.getElementById("combinationButton"+x);
+              let comboText = document.getElementById("comboText"+x);
               comboButton.className = comboButton.className.replace("Selected", "");
+              comboText.className = comboText.className.replace("Selected", "");
+
           }
           //Change classname of the selected tab in order to get a different styling
           document.getElementById("combinationButton"+this.state.tabNr).className += "Selected";
+          document.getElementById("comboText"+this.state.tabNr).className += "Selected";
+
           //Update images, audio and text with the new tab number
       });
   }
@@ -107,7 +112,9 @@ class MediaRepresentation extends React.Component {
                   </section>
                   <section id="mediaContainer">
                       <section id="mediaPictureContainer">
-                          <section id="svgImage" dangerouslySetInnerHTML={{__html: this.state.svg}}/>
+                          <section id="picFrame">
+                              <section id="svgImage" dangerouslySetInnerHTML={{__html: this.state.svg}}/>
+                          </section>
                       </section>
 
                       <section id="mediaAudioContainer">

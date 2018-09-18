@@ -22,6 +22,7 @@ class Categories extends React.Component {
         this.props.setText(chosenCategory);
     }
 
+
     render(){
         return(
             <React.Fragment>

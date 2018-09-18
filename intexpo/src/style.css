@@ -17,7 +17,7 @@ header{
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: rgba(170,0,0,0.8);
+  background-color: #0c2517;
   height: 10vh;
   color: white;
   font-size: 40px;
@@ -45,7 +45,7 @@ header{
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  background-color: rgb(256,256,256);
+  background-color: rgb(220, 220, 220);
   height: 7vh;
 }
 
@@ -54,23 +54,30 @@ header{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 25%;
+  width: 24.9%;
   background-color: rgb(0,0,0);
   height: 100%;
   padding:0;
-  border:none;
+  border: none;
 }
 
 .combinationButton:hover{
   background-color: rgb(256,256,256);
 }
 
-.combinationButton:hover circle{
+.combinationButton:hover .comboText{
   fill: rgb(0,0,0);
 }
 
-.combinationCircle{
-  fill: rgb(256,256,256);
+.comboText{
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.comboTextSelected{
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .combinationButtonSelected{
@@ -79,15 +86,12 @@ header{
   align-items: center;
   justify-content: center;
   width:25%;
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(220, 220, 220);
   height: 100%;
   padding:0;
   border:none;
 }
 
-.combinationCircleSelected{
-  fill: rgb(0,0,0);
-}
 
 #mediaContainer{
   display: flex;
@@ -105,8 +109,18 @@ header{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(220, 220, 220);
   border-bottom: 4px solid rgb(170, 170, 170);
+}
+
+#picFrame{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(256, 256, 256);
+  height:85%;
+  width:100%;
+
 }
 
 #svgImage{
@@ -122,7 +136,6 @@ header{
   padding: 10px;
   width: 100%;
   height: 20%;
-  background-color: rgb(240, 240, 240);
   border-top: 4px solid rgb(170, 170, 170);
 }
 
@@ -143,7 +156,7 @@ header{
 #mediaCategory{
   width: 15%;
   height: 85vh;
-  background-color: rgb(170, 170, 170);
+    background-color: rgb(170, 170, 170);
 }
 
 #categoryHeader{
@@ -163,17 +176,12 @@ header{
   align-items: center;
   width:100%;
   height: 7vh;
-  background-color: rgba(170,0,0,0.8);
+  background-color: #0c2517;
   color: white;
   font-size: 20px;
   margin-top: 5px;
   padding:0;
   border:none;
-}
-
-#categoryButton:hover{
-  transition: 0.3s;
-  background-color: rgb(206, 0, 0);
 }
 
 #Bilder, #Lyd, #Tekst{
@@ -206,7 +214,7 @@ footer{
   align-items: center;
   height: 5vh;
   width: 100%;
-  background-color: rgba(170,0,0,0.8);
+  background-color: #0c2517;
 }
 
 footer > a {
@@ -243,7 +251,7 @@ footer > a {
   }
 
   #mediaTextContainer {
-    width: 100%;
+    width: 80%;
   }
 
   #mediaText{
