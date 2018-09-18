@@ -6,38 +6,60 @@ import TabDisplay from "./TabDisplay";
 class MediaRepresentation extends React.Component {
   constructor(props) {
     super(props);
-    this.updateComboList = this.updateComboList.bind(this);
     this.updateTab = this.updateTab.bind(this);
     this.fetchImage = this.fetchImage.bind(this);
     this.fetchText = this.fetchText.bind(this);
-    this.fetchAudio = this.fetchAudio.bind(this);
+    this.fetchSound = this.fetchSound.bind(this);
+    this.setImg = this.setImg.bind(this);
+      this.setSound = this.setSound.bind(this);
+      this.setText = this.setText.bind(this);
+
 
       this.state = {
-        combinations : [],
-        tabNr : 1,
-        svg : "",
-        audio : "",
-        text : "",
+          currImg : "Abstrakt",
+          currSound : "Instrumenter",
+          currText : "One-liners",
+          svg : "",
+          sound : "",
+          text : "",
+          tabNr : 1,
     };
   }
 
   componentDidMount(){
-      this.fetchImage(this.state.combinations[0][0]);
-      this.fetchAudio(this.state.combinations[0][1]);
-      this.fetchText(this.state.combinations[0][2]);
-  }
+      this.setImg(this.state.currImg);
+      this.setSound(this.state.currSound);
+      this.setText(this.state.currText);
 
-  updateComboList(comboList){
-      this.state.combinations = comboList;
-      console.log(comboList);
-      console.log("køll2");
   }
 
   updateTab(newTabNr){
-      this.state.tabNr = newTabNr;
-      this.fetchImage(this.state.combinations[this.state.tabNr - 1][0]);
-      this.fetchAudio(this.state.combinations[this.state.tabNr - 1][1]);
-      this.fetchText(this.state.combinations[this.state.tabNr - 1][2]);
+      this.setState({tabNr : newTabNr}, function () {
+          console.log(this.state.tabNr);
+          this.setImg(this.state.currImg);
+          this.setSound(this.state.currSound);
+          this.setText(this.state.currText);
+      });
+  }
+
+  setImg(img){
+      this.setState({currImg : img}, function () {
+          this.fetchImage("img/" + this.state.currImg + "/" + this.state.tabNr + ".svg");
+      });
+  }
+
+  setSound(sound){
+      this.setState({currSound : sound}, function () {
+          this.fetchSound("sound/" + this.state.currSound + "/" + this.state.tabNr + ".mp3");
+      });
+  }
+
+  setText(text){
+
+      this.setState({currText : text}, function () {
+          console.log("Currtext" + this.state.currText + "  Text: " + text);
+          this.fetchText("text/" + this.state.currText + "/" + this.state.tabNr + ".json");
+      });
   }
 
   async fetchImage(urlPath){
@@ -45,16 +67,15 @@ class MediaRepresentation extends React.Component {
           this.setState({svg: sessionStorage.getItem(urlPath)});
       }
       else{
-          //kall updatenoe
-          const res = await fetch("assets" + urlPath);
+          const res = await fetch("assets/" + urlPath);
           const data = await res.text();
           sessionStorage.setItem(urlPath, data);
           this.setState({svg: sessionStorage.getItem(urlPath)});
       }
   }
 
-  fetchAudio(urlPath){
-      this.setState({audio : "assets" + urlPath}, function () {
+  fetchSound(urlPath){
+      this.setState({audio : "assets/" + urlPath}, function () {
           this.refs.audio.pause();
           this.refs.audio.load();
       });
@@ -65,7 +86,7 @@ class MediaRepresentation extends React.Component {
           this.setState({text: sessionStorage.getItem(urlPath)});
       }
       else{
-          const res = await fetch("assets" + urlPath);
+          const res = await fetch("assets/" + urlPath);
           const data = await res.text();
           sessionStorage.setItem(urlPath, data);
           this.setState({text: sessionStorage.getItem(urlPath)});
@@ -102,7 +123,7 @@ class MediaRepresentation extends React.Component {
               </section>
               <section id="mediaCategory">
                   <section id="categoryHeader">Kategorier</section>
-                  <Categories setCombosCategories = {this.updateComboList} />
+                  <Categories setText = {this.setText} setSound = {this.setSound} setImg = {this.setImg} setCombosCategories = {this.updateComboList} />
               </section>
           </section>
       </React.Fragment>

@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import './style.css';
 import registerServiceWorker from './registerServiceWorker';
 import Header from "./components/Header";
-import TabDisplay from "./components/TabDisplay";
-import Categories from "./components/Categories";
 import MediaRepresentation from "./components/MediaRepresentation";
 import Footer from "./components/Footer";
 

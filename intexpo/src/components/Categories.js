@@ -11,9 +11,6 @@ class Categories extends React.Component {
         //listToRandomizer is the list that will be given to the randomizer, which creates combinations
         //Initially the list have the first option in each category
         this.state = {
-            image : "",
-            sound : "",
-            text : "",
             listToRandomizer : ["Abstrakt", "Instrumenter", "Språk"],
         };
 
@@ -28,27 +25,19 @@ class Categories extends React.Component {
     //Functions to set the state of image, sound and text
     //The parameters are being sent from CategoryButton.js
     setImage(chosenCategory){
-        this.state.image = chosenCategory;
-        this.state.listToRandomizer[0] = chosenCategory;
-        this.forceUpdate();
-        this.setCombos(this.state.listToRandomizer)
+        this.props.setImg(chosenCategory);
     }
 
     setSound(chosenCategory){
-        this.state.sound = chosenCategory;
-        this.state.listToRandomizer[1] = chosenCategory;
-        this.forceUpdate();
-        this.setCombos(this.state.listToRandomizer)
+        this.props.setSound(chosenCategory);
     }
 
     setText(chosenCategory){
-        this.state.text = chosenCategory;
-        this.state.listToRandomizer[2] = chosenCategory;
-        this.forceUpdate();
-        this.setCombos(this.state.listToRandomizer)
+        this.props.setText(chosenCategory);
     }
 
     setCombos(comboList){
+        console.log(comboList);
         this.props.setCombosCategories(comboList);
     }
 
@@ -58,7 +47,7 @@ class Categories extends React.Component {
                 {/*Adding three CategoryButton components
                    Each button has its own function that are being passed from Categories to CategoryButton
                    Also setting props for CategoryButton*/}
-                <Randomizer setCategoriesRandomizer={this.setCombos} selectedCategories = {this.state.listToRandomizer}/>
+                {/*<Randomizer setCategoriesRandomizer={this.setCombos} selectedCategories = {this.state.listToRandomizer}/>*/}
                 <CategoryButton setImage = {this.setImage} category1Name="Abstrakt" category2Name="Dyr" category3Name="Biler" categoryType="Bilder"/>
                 <CategoryButton setSound = {this.setSound} category1Name="Instrumenter" category2Name="Musikk" category3Name="Vær" categoryType="Lyd"/>
                 <CategoryButton setText = {this.setText} category1Name="Språk" category2Name="One-liners" category3Name="Trump-quotes" categoryType="Tekst"/>
