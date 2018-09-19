@@ -31,13 +31,13 @@ header{
   height: 85vh;
 }
 
+/*Container for all mediaContainers*/
 #innerContainer{
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 85vh;
 }
-
 
 #combinationMenu{
   display: flex;
@@ -65,17 +65,34 @@ header{
   background-color: rgb(256,256,256);
 }
 
-.combinationButton:hover .comboText{
+.combinationButton:hover .comboTextLarge{
   color: rgb(0,0,0);
 }
 
-.comboText{
+.combinationButton:hover .comboTextSmall{
+  color: rgb(0,0,0);
+}
+
+.comboTextLarge{
   color: white;
   font-size: 15px;
   font-weight: bold;
 }
 
-.comboTextSelected{
+.comboTextLargeSelected{
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.comboTextSmall{
+  display: none;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.comboTextSmallSelected{
+  display: none;
   font-size: 15px;
   font-weight: bold;
 }
@@ -91,7 +108,6 @@ header{
   padding:0;
   border:none;
 }
-
 
 #mediaContainer{
   display: flex;
@@ -125,8 +141,18 @@ header{
 
 #svgImage{
   width: 20%;
-  min-width: 300px;
+  min-width: 250px;
   overflow: hidden;
+}
+
+#mediaAudioContainer{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+  background-color: white;
+  padding:5px;
 }
 
 #mediaTextContainer{
@@ -142,15 +168,7 @@ header{
 #mediaText{
   font-size: 20px;
   color: black;
-}
-
-#mediaAudioContainer{
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 10%;
-  background-color: white;
+  text-align: center;
 }
 
 #mediaCategory{
@@ -241,12 +259,12 @@ footer > a {
   }
 
   /* hides "Kombinasjon + tabnumber " */
-  #largeCombo {
+  .comboTextLarge, .comboTextLargeSelected {
     display: none;
   }
 
   /* displays "tabnumber" instead */
-  #smallCombo {
+  .comboTextSmall, .comboTextSmallSelected {
     display: inline;
   }
 
