@@ -1,15 +1,12 @@
 * {
   font-family: Helvetica, sans-serif;
+  box-sizing: border-box;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
+body, html {
   margin: 0;
   padding: 0;
-  width: 100%;
-  min-height: 100vh;
-  background-color: rgb(256,256,256);
+  height:100%;
 }
 
 header{
@@ -18,8 +15,8 @@ header{
   align-items: center;
   width: 100%;
   background-color: #0c2517;
-  height: 10vh;
   color: white;
+  padding: 0.5em 0;
   font-size: 40px;
 }
 
@@ -28,17 +25,19 @@ header{
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 85vh;
 }
 
 /*Container for all mediaContainers*/
-#innerContainer{
+#innerContainerLeft{
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 85vh;
 }
 
+/*Removing the blue outline when pressing a button*/
+button:focus {outline:0;}
+
+/*Menubox for all combination-buttons*/
 #combinationMenu{
   display: flex;
   flex-direction: row;
@@ -46,7 +45,6 @@ header{
   align-items: center;
   width: 100%;
   background-color: rgb(220, 220, 220);
-  height: 7vh;
 }
 
 .combinationButton{
@@ -56,8 +54,7 @@ header{
   justify-content: center;
   width: 25%;
   background-color: rgb(0,0,0);
-  height: 100%;
-  padding:0;
+  padding: 1.5em 0;
   border: none;
 }
 
@@ -79,14 +76,15 @@ header{
   font-weight: bold;
 }
 
-.comboTextLargeSelected{
+.comboTextSmall{
+  display: none;
+  color: white;
   font-size: 15px;
   font-weight: bold;
 }
 
-.comboTextSmall{
-  display: none;
-  color: white;
+/*The css-styling ending with Selected are the combinationbuttons when pressed*/
+.comboTextLargeSelected{
   font-size: 15px;
   font-weight: bold;
 }
@@ -104,29 +102,28 @@ header{
   justify-content: center;
   width:25%;
   background-color: rgb(220, 220, 220);
-  height: 100%;
-  padding:0;
+  padding: 1.5em 0;
   border:none;
 }
 
+/*Container for all media (image, sound, text*/
 #mediaContainer{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 78vh;
   background-color: rgb(256,256,256);
 }
 
 #mediaPictureContainer{
   width:100%;
-  height: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgb(220, 220, 220);
-  border-bottom: 4px solid rgb(170, 170, 170);
+  border-bottom: 7px solid rgb(170, 170, 170);
+  padding: 2em 0;
 }
 
 #picFrame{
@@ -134,9 +131,11 @@ header{
   justify-content: center;
   align-items: center;
   background-color: rgb(256, 256, 256);
-  height:85%;
   width:100%;
   overflow: hidden;
+  border-bottom: 7px solid rgb(170, 170, 170);
+  border-top: 7px solid rgb(170, 170, 170);
+  padding: 2.1em 0;
 }
 
 #svgImage{
@@ -151,53 +150,50 @@ header{
   width: 100%;
   height: 10%;
   background-color: white;
-  padding:5px;
+  padding: 1.9em 0;
 }
 
 #mediaTextContainer{
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
   width: 100%;
-  height: 20%;
-  border-top: 4px solid rgb(170, 170, 170);
+  padding: 1.5em 0;
+  border-top: 7px solid rgb(170, 170, 170);
 }
 
 #mediaText{
   font-size: 17px;
+  font-weight: bold;
   color: black;
   text-align: center;
+  padding: 3em;
+  border-radius: 5px;
 }
 
+/*Container for all categories*/
 #mediaCategory{
   width: 15%;
-  height: 85vh;
-    background-color: rgb(170, 170, 170);
+  background-color: rgb(170, 170, 170);
+  border-left: 7px solid rgb(170, 170, 170);
+}
+
+#category{
+  text-align: center;
+  width:100%;
+  background-color: rgb(10, 10, 10);
+  color: white;
+  font-size: 20px;
+  padding: 1.1em 0;
 }
 
 #categoryHeader{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   width:100%;
-  height: 7vh;
-  background-color: rgb(20, 20, 20);
-  color: white;
-  font-size: 20px;
-}
-
-#categoryButton{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width:100%;
-  height: 7vh;
   background-color: #0c2517;
   color: white;
   font-size: 20px;
-  margin-top: 5px;
-  padding:0;
+  padding: 1.2em 0;
   border:none;
 }
 
@@ -205,7 +201,6 @@ header{
   display:flex;
   flex-direction: column;
   width:auto;
-  height: 18vh;
 }
 
 .categoryChoose{
@@ -215,13 +210,7 @@ header{
   border:none;
   font-size: 17px;
   margin-top: 3px;
-
-}
-
-.categoryChoose:hover{
-  transition: 0.3s;
-    background-color: rgb(240, 240, 240);
-
+  padding: 1em 0;
 }
 
 footer{
@@ -229,21 +218,22 @@ footer{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 5vh;
+  padding: 1.1em 0;
   width: 100%;
   background-color: #0c2517;
 }
 
+/*Removing decorations from the link in the footer*/
 footer > a {
   text-decoration: none;
   color: white;
 }
 
 /*----------------------------------------------------*/
-/*Responsivt design for mobile enheter*/
+/*Responsive design for mobile units*/
+/*Moving the categories beneath the media for better responsiveness*/
 
-@media screen and (orientation: portrait){
-
+@media screen and (orientation: portrait) {
   body{
     overflow-x: hidden;
   }
@@ -273,16 +263,18 @@ footer > a {
   }
 
   #mediaTextContainer {
-    width: 80%;
+    width: 100%;
   }
 
   #mediaText{
     font-size: 15px;
+    font-weight: bold;
+    border: none;
   }
 
   #mediaCategory {
     width: 100%;
-    min-height:10vh;
+    border-left: none;
   }
 
   footer {
@@ -290,9 +282,62 @@ footer > a {
   }
 }
 
-@media only screen and (max-width: 1000px) {
+/*Responsive design for when both screenwidth and screenheight begins to be small*/
+@media only screen and (max-height: 900px) and (max-width: 800px) {
+  #container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  /*Hides "Kombinasjon + tabnumber " */
+  .comboTextLarge, .comboTextLargeSelected {
+    display: none;
+  }
+
+  /*Displays only "tabnumber" instead */
+  .comboTextSmall, .comboTextSmallSelected {
+    display: inline;
+  }
+
+  #mediaContainer {
+    width: 100%;
+  }
+
+  #mediaCategory {
+    width: 100%;
+    border-left: none;
+  }
+}
+
+/*Scaling the svgimage for different screenwidths*/
+@media only screen and (max-width: 1400px) {
   #svgImage{
+    min-width: 25%;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  #svgImage{
+    min-width: 25%;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  #svgImage{
+    min-width: 27%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  #svgImage {
     min-width: 30%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  #svgImage{
+    min-width: 35%;
   }
 }
 
