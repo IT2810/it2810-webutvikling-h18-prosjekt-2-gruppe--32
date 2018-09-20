@@ -165,5 +165,4 @@ class MediaRepresentation extends React.Component {
   }
 }
 
-
 export default MediaRepresentation;

@@ -136,12 +136,11 @@ header{
   background-color: rgb(256, 256, 256);
   height:85%;
   width:100%;
-
+  overflow: hidden;
 }
 
 #svgImage{
-  width: 20%;
-  min-width: 250px;
+  min-width: 20%;
   overflow: hidden;
 }
 
@@ -166,7 +165,7 @@ header{
 }
 
 #mediaText{
-  font-size: 20px;
+  font-size: 17px;
   color: black;
   text-align: center;
 }
@@ -244,6 +243,11 @@ footer > a {
 /*Responsivt design for mobile enheter*/
 
 @media screen and (orientation: portrait){
+
+  body{
+    overflow-x: hidden;
+  }
+
   #container {
     display: flex;
     flex-direction: column;
@@ -283,6 +287,30 @@ footer > a {
 
   footer {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  #svgImage{
+    min-width: 30%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #svgImage{
+    min-width: 40%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #svgImage{
+    min-width: 55%;
+  }
+}
+
+@media only screen and (max-width: 250px) {
+  #svgImage{
+    min-width: 65%;
   }
 }
 
