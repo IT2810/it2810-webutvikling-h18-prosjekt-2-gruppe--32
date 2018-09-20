@@ -145,7 +145,7 @@ class MediaRepresentation extends React.Component {
                       </section>
 
                       <section id="mediaAudioContainer">
-                          <audio ref="audio" loop controls>
+                          <audio id="player" ref="audio" loop controls>
                               <source src={this.state.audio} type= "audio/mp3"/>
                               Your browser does not support the audio element
                           </audio>
