@@ -1,6 +1,7 @@
 {
   "name": "intexpo",
   "version": "0.1.0",
+  "homepage" : "http://it2810-32.idi.ntnu.no/prosjekt2",
   "private": true,
   "dependencies": {
     "react": "^16.4.2",

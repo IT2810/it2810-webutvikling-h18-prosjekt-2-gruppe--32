@@ -6,13 +6,12 @@ class CategoryButton extends React.Component{
 
     constructor(props){
         super(props);
-
         this.state = {
             chosen : "",
         };
     }
 
-    //set the startup-categories to be "chosen" (changed background-color)
+    //Sets the startup-categories to be "chosen" (changed background-color)
     componentDidMount(){
         this.setColor("Abstrakt", "Bilder");
         this.setColor("Instrumenter", "Lyd");
@@ -57,7 +56,7 @@ class CategoryButton extends React.Component{
     render(){
         return(
             <React.Fragment>
-                <button id="categoryButton">{this.props.categoryType}</button>
+                <section id="categoryHeader">{this.props.categoryType}</section>
                 <section id={this.props.categoryType}>
                     <button id={"btn1"+this.props.categoryType} className="categoryChoose" onClick={() => this.setList(this.props.category1Name)}>{this.props.category1Name}</button>
                     <button id={"btn2"+this.props.categoryType} className="categoryChoose" onClick={() => this.setList(this.props.category2Name)}>{this.props.category2Name}</button>

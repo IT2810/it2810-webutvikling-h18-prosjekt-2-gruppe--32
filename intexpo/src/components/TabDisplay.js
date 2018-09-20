@@ -11,13 +11,13 @@ class TabDisplay extends React.Component {
     render(){
         return (
              <React.Fragment>
-                <button onClick={() => this.setTab(this.props.tabNr)} className="combinationButton" id={"combinationButton" + this.props.tabNr}>
+                 {/*comboTextLarge is hidden when the screen fits for mobile and small devices*/}
+                 <button onClick={() => this.setTab(this.props.tabNr)} className="combinationButton" id={"combinationButton" + this.props.tabNr}>
                     <section className="comboTextLarge" id={"comboTextLarge"+this.props.tabNr} dangerouslySetInnerHTML={{__html: "Kombinasjon " + this.props.tabNr}} />
                     <section className="comboTextSmall" id={"comboTextSmall"+this.props.tabNr} dangerouslySetInnerHTML={{__html: this.props.tabNr}} />
                 </button>
             </React.Fragment>
         )
-
     }
 }
 

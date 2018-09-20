@@ -130,7 +130,7 @@ class MediaRepresentation extends React.Component {
     return(
       <React.Fragment>
           <section id="container">
-              <section id="innerContainer">
+              <section id="innerContainerLeft">
                   <section id="combinationMenu">
                       <TabDisplay updateTab = {this.updateTab} tabNr="1"/>
                       <TabDisplay updateTab = {this.updateTab} tabNr="2"/>
@@ -143,7 +143,6 @@ class MediaRepresentation extends React.Component {
                               <section id="svgImage" dangerouslySetInnerHTML={{__html: this.state.svg}}/>
                           </section>
                       </section>
-
                       <section id="mediaAudioContainer">
                           <audio ref="audio" loop controls>
                               <source src={this.state.audio} type= "audio/mp3"/>
@@ -156,8 +155,9 @@ class MediaRepresentation extends React.Component {
                   </section>
               </section>
               <section id="mediaCategory">
-                  <section id="categoryHeader">Kategorier</section>
-                  <Categories setText = {this.setText} setSound = {this.setSound} setImg = {this.setImg} setCombosCategories = {this.updateComboList} />
+                  <section id="category">Kategorier</section>
+                  {/*Sending setText, setSound and setImg down to Categories to retrieve the chosen category*/}
+                  <Categories setText = {this.setText} setSound = {this.setSound} setImg = {this.setImg}/>
               </section>
           </section>
       </React.Fragment>
