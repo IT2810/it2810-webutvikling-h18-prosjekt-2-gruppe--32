@@ -20,7 +20,7 @@ README only available in Norwegian language.
 ## Bruk
 Applikasjonens formål er å vise en online utstilling med brukerstyrte kombinasjoner av lyd, SVG-grafikk og tekst lagret i JSON-format. 
 Dette skal vises som en single page application styrt av React, og data skal lastes automatisk ved bruk av AJAX-kall. 
-Ved innlasting første gang skal siden vise en tilfeldig valgt utstilling før brukeren eventuelt kan ønske seg en ny kombinasjon basert på de samme kategoriene, eller eventuelt velge seg nye kategorier. 
+Ved innlasting første gang skal siden vise en generert utstilling før brukeren eventuelt kan velge en ny kombinasjon basert på de samme kategoriene, eller eventuelt velge seg nye kategorier. 
 Utstillingen skal bli automatisk oppdatert ved valg av nye kombinasjoner eller kategorier.
 
 
